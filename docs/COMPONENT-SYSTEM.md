@@ -30,7 +30,7 @@ src/
 │   ├── contact/
 │   └── book/
 ├── components/
-│   ├── ui/                 # shadcn primitives only
+│   ├── ui/                 # shadcn primitives and adapted registry components
 │   ├── site/               # site-wide sections and chrome
 │   ├── marketing/          # reusable conversion sections
 │   ├── coaching/           # coaching/package-specific components
@@ -45,7 +45,7 @@ src/
 
 ### Component ownership
 
-- `components/ui/*`: generated/adapted shadcn primitives. Keep these generic.
+- `components/ui/*`: generated/adapted shadcn primitives and registry components. Keep them reusable.
 - `components/site/*`: Header, Footer, mobile navigation, WhatsApp CTA, trust strip.
 - `components/marketing/*`: Hero, outcomes, audience selector, testimonials, FAQ, final CTA.
 - `components/coaching/*`: Package cards, curriculum, implementation workflow, support details.
@@ -68,13 +68,15 @@ src/
 
 ### Installation workflow
 
-Use the project's configured registry alias when supported by the current 21st.dev registry tooling:
+21st.dev currently distributes components through shadcn-compatible registry URLs. Use the exact component URL supplied by 21st.dev rather than inventing a generic `@21st/*` alias:
 
 ```bash
-npx shadcn@latest add @21st/<component>
+npx shadcn@latest add "https://21st.dev/r/<username>/<slug>?api_key=$API_KEY_21ST"
 ```
 
-If a 21st.dev component is copied manually, treat the copied code as project-owned code and place it in the appropriate `src/components/*` directory. Do not paste an entire demo page into `src/app/page.tsx`.
+Keep `API_KEY_21ST` local or in the deployment environment. Never commit the key. If a component is copied manually, treat the copied code as project-owned code and place it in the appropriate `src/components/*` directory. Do not paste an entire demo page into `src/app/page.tsx`.
+
+When installing a registry component, preserve a short source comment at the top of the copied file when practical so future maintainers can trace its origin.
 
 ### Adaptation checklist
 
@@ -90,6 +92,10 @@ Before merging a 21st.dev component:
 - Keep the component server-rendered unless interactivity requires `use client`.
 - Keep animations purposeful; no decorative motion that competes with the CTA.
 - Confirm the component does not introduce a duplicate design language.
+
+### Attached hero component
+
+The supplied `underline-hero-section.tsx` is adapted into `src/components/ui/underline-hero-section.tsx`. The original SaaS copy, external font request and demo-only callbacks were removed/replaced. The component keeps the underline treatment, responsive navigation, reduced-motion behavior and local animation, while accepting serializable URL props for Next.js Server Component compatibility.
 
 ## Visual language
 
