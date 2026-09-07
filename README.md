@@ -2,116 +2,101 @@
 
 **AI Systems & Digital Growth for Kenyan Businesses**
 
-Website: https://ecommercesolutions.co.ke
+Production domain: https://ecommercesolutions.co.ke
 
-A Kenya-focused business website and lead-generation platform for practical AI coaching, automation, and digital growth services.
-
-## Core Offer
-
-### AI Mastery Coaching
-
-We sell business outcomes, not AI theory. The service helps business owners, creators, coaches, agencies, and teams use AI to save time, create content, generate leads, improve customer communication, and automate repetitive work.
-
-### Packages
-
-| Package | Ideal client | Delivery | Starting price |
-|---|---|---|---:|
-| **AI Starter** | Shops, salons, restaurants, small businesses | 2 × 60-min sessions | KES 8,000 |
-| **AI Growth** | Creators, influencers, coaches, consultants | 4 × 60-min sessions + 2 weeks WhatsApp support | KES 25,000 |
-| **AI Pro VIP** | Established businesses and agencies | 6 × 60-min sessions + 30 days support | KES 60,000 |
-
-International / diaspora pricing can be offered in USD: approximately $100, $250, and $600 respectively, subject to scope.
+A Kenya-focused business website and lead-generation platform for practical AI coaching, automation and digital growth.
 
 ## Positioning
 
-Primary message:
-
 > **Turn AI Into a Business Advantage.**
 
-Supporting message:
+Practical AI coaching and automation for Kenyan business owners, creators and teams — focused on saving time, creating content faster, generating leads, improving customer communication and automating repetitive work.
 
-> Practical AI coaching and automation for Kenyan business owners, creators and teams—so you can create content faster, respond to customers better and automate repetitive work.
+This site sells business outcomes, not AI theory.
 
-The website should avoid generic AI hype, excessive futuristic visuals, and technology-first messaging. Lead with measurable business outcomes and practical implementation.
+## Offers
 
-## Target Audiences
+| Package | Ideal client | Delivery | Starting price |
+|---|---|---|---:|
+| **AI Starter** | Shops, salons, restaurants & small businesses | 2 × 60-min sessions | KES 8,000 |
+| **AI Growth** | Creators, influencers, coaches & consultants | 4 × 60-min sessions + 2 weeks WhatsApp support | KES 25,000 |
+| **AI Pro VIP** | Established businesses & agencies | 6 × 60-min sessions + 30 days support | KES 60,000 |
 
-1. **Small Business Owners** — shops, salons, restaurants, online sellers, and service businesses.
-2. **Creators & Coaches** — influencers, content creators, coaches, consultants, and personal brands.
-3. **Businesses & Agencies** — established businesses, agencies, marketing teams, and organizations requiring custom systems and team training.
+International / diaspora pricing can be offered in USD at approximately $100, $250 and $600 respectively, subject to scope.
 
 ## Differentiator
 
-Every engagement is implementation-focused. At least one useful workflow is built live with the client during coaching. The service is positioned as mastery through practical implementation rather than passive AI training.
+Every engagement is implementation-focused. At least one useful workflow is built live with the client during coaching.
 
 Examples:
 
 - Customer enquiry → AI → response
-- Product → AI → product description + social caption
+- Product → AI → description + social caption
 - Video → AI → script + captions + posts
 - Lead → form → AI → follow-up
 - Content idea → AI → content calendar
 
-## Coaching Curriculum
+## Frontend Stack
 
-### Small Business Owners
+The website is now standardized on:
 
-**Session 1 — AI for Customers**
-- Customer replies
-- WhatsApp / Instagram response workflows
-- Product descriptions
-- Review assistance
+- **Next.js App Router**
+- **TypeScript** with strict mode
+- **Tailwind CSS v4**
+- **shadcn/ui** as the base component system
+- **21st.dev** for selected higher-level UI components and visual patterns
+- **Lucide React** for icons
+- **Supabase** for future lead/client data
+- **n8n** for automation
+- **Cloudflare** for production delivery
 
-**Session 2 — AI for Marketing**
-- 30 days of social content
-- Ad copy
-- Promotional copy
-- Canva AI workflows
+### Component strategy
 
-### Creators & Influencers
+shadcn provides the stable primitives. 21st.dev is used selectively for polished patterns, heroes, marketing sections and interaction-heavy components. Installed components become source code in this repository and must be reviewed and normalized to the project's tokens and accessibility standards.
 
-**Session 1 — Content Machine**
-- Generate large batches of content ideas
-- Write video scripts
-- Repurpose one piece of content into multiple posts
+See [`docs/COMPONENT-SYSTEM.md`](docs/COMPONENT-SYSTEM.md) for the full component rules and installation workflow.
 
-**Session 2 — Monetization**
-- Brand pitches
-- Media kit content
-- Sponsor emails
+## Project Structure
 
-**Session 3 — Community**
-- DM assistance
-- Live-session planning
-- Engagement workflows
+```text
+.
+├── components.json
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── tsconfig.json
+├── docs/
+│   ├── OFFER.md
+│   ├── SITE-ARCHITECTURE.md
+│   ├── IMPLEMENTATION_PLAN.md
+│   └── COMPONENT-SYSTEM.md
+└── src/
+    ├── app/
+    │   ├── globals.css
+    │   ├── layout.tsx
+    │   └── page.tsx
+    ├── components/
+    │   └── ui/
+    │       ├── button.tsx
+    │       └── card.tsx
+    ├── hooks/
+    └── lib/
+        └── utils.ts
+```
 
-**Session 4 — Automation**
-- n8n workflows
-- Lead collection
-- Email automation
-- Growth tracking
+As the site grows, use `components/site`, `components/marketing`, `components/coaching` and `components/forms` for domain components. Keep `components/ui` reserved for reusable shadcn-style primitives.
 
-## Delivery Model
+## 21st.dev workflow
 
-- **Booking:** WhatsApp-first, with online scheduling as a secondary route.
-- **Calls:** Google Meet or Zoom.
-- **Recordings:** Session replays supplied to clients.
-- **Materials:** Google Drive containing recordings, prompts, templates, and SOPs.
-- **Support:** WhatsApp between sessions according to package.
-- **Payments in Kenya:** M-Pesa, Airtel Money, and card/payment links as configured.
-- **International payments:** Card and PayPal/payment-provider options as configured.
+21st.dev components are installed through the shadcn registry mechanism. A typical component URL follows this pattern:
 
-## Recommended Technology Stack
+```bash
+npx shadcn@latest add "https://21st.dev/r/<username>/<slug>?api_key=$API_KEY_21ST"
+```
 
-- **Astro** — static-first website
-- **Cloudflare Pages** — deployment, CDN, and edge delivery
-- **Supabase** — lead/application data and future client portal capabilities
-- **n8n** — business automation and integrations
-- **WhatsApp** — primary sales/support channel
-- **Calendly or equivalent** — scheduling
-- **Payment provider** — M-Pesa/card/international payment integration
+Keep the API key in the local environment; never commit it. Review every file written by the command before merging. Avoid registry collisions by checking whether the component name already exists in `src/components/ui`.
 
-## Website Architecture
+## Target Pages
 
 MVP:
 
@@ -143,7 +128,7 @@ Future expansion:
 └── Book
 ```
 
-## Homepage Conversion Flow
+## Conversion Flow
 
 ```text
 Visitor
@@ -169,15 +154,23 @@ Support
 Testimonial / Referral
 ```
 
-The website should not require visitors to understand AI before taking action. The visitor should immediately understand what the service can do for their business.
+Primary CTA: **Book your AI Mastery Call**.
+
+Secondary CTA: **WhatsApp**.
+
+## Delivery
+
+- Booking: WhatsApp-first, with online scheduling as a secondary route.
+- Calls: Google Meet or Zoom.
+- Recordings: session replays supplied to clients.
+- Materials: Google Drive with recordings, prompts, templates and SOPs.
+- Support: WhatsApp according to package.
+- Kenya payments: M-Pesa, Airtel Money and card/payment links as configured.
+- International payments: card, PayPal or configured payment provider.
 
 ## Lead Magnet
 
-Recommended initial lead-generation asset:
-
 **Free AI Business Opportunity Audit**
-
-Purpose: identify where AI could save a business time or improve marketing, customer service, sales, or administration.
 
 Suggested fields:
 
@@ -188,122 +181,80 @@ Suggested fields:
 - WhatsApp
 - Email
 
-Submissions should eventually feed into Supabase and an n8n follow-up workflow.
-
-## SEO Direction
-
-Primary themes:
-
-- AI for small businesses in Kenya
-- ChatGPT for business Kenya
-- AI automation Kenya
-- AI tools for Kenyan businesses
-- ChatGPT for WhatsApp business
-- AI content creation Kenya
-- AI marketing for small business
-- n8n automation Kenya
-- AI coaching Kenya
-- ChatGPT training Kenya
-
-Content should be practical and locally relevant rather than generic AI news.
-
-Example articles:
-
-- 10 Ways a Nairobi Business Can Use ChatGPT to Save 5 Hours a Week
-- How to Use ChatGPT to Create 30 Days of Facebook Content
-- 5 WhatsApp Customer Service Tasks You Can Automate
-- How Kenyan Creators Can Use AI to Turn One Video Into 10 Pieces of Content
+Future submissions should feed into Supabase and an n8n follow-up workflow.
 
 ## Design Direction
 
 Premium Kenyan business consultancy + modern AI.
 
-Avoid:
-
-- Robot-heavy imagery
-- Glowing brains
-- Excessive neon
-- Generic AI stock photography
-- Empty AI buzzwords
-
-Preferred direction:
-
-- Clean, modern layouts
+- Primary accent: `#1D4ED8`
+- High-intent CTA accent: `#F97316`
+- Clean white/neutral surfaces
 - Strong typography
-- White / neutral surfaces
-- Electric blue as a primary accent
-- Orange used selectively for high-intent CTAs
-- Real business imagery and screenshots of practical workflows
+- Restrained borders and shadows
+- Real business imagery and practical workflow screenshots
 - Mobile-first responsive design
+- Purposeful, restrained animation
 
-The visual standard should feel credible for a KES 60,000–100,000 client while remaining approachable to a KES 8,000–12,000 small-business client.
+Avoid robot-heavy imagery, glowing brains, excessive neon, generic AI stock photography and technology-first messaging.
 
 ## Development Principles
 
 - Mobile-first
 - Performance-first
-- Accessible semantic HTML
-- SEO-friendly static rendering
+- Semantic, accessible HTML
+- Server-rendered by default
 - Minimal client-side JavaScript
-- Reusable Astro components
-- Typed configuration/data where practical
-- Secure handling of environment variables
+- Strict TypeScript
+- Reusable shadcn primitives
+- Reusable domain components
+- Validate forms before persistence
+- Keep Supabase and automation secrets server-side
 - Never expose service-role keys or private credentials
-- Keep lead data protected with Supabase RLS
-- Build the MVP before adding complex client-portal functionality
+- Protect lead data with Supabase RLS
+- Build the conversion MVP before adding a client portal
 
 ## Environment Variables
 
 Expected future variables may include:
 
 ```env
-PUBLIC_SITE_URL=https://ecommercesolutions.co.ke
-PUBLIC_WHATSAPP_NUMBER=
-PUBLIC_CALENDLY_URL=
-PUBLIC_SUPABASE_URL=
-PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_SITE_URL=https://ecommercesolutions.co.ke
+NEXT_PUBLIC_WHATSAPP_NUMBER=
+NEXT_PUBLIC_CALENDLY_URL=
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
+API_KEY_21ST=
 ```
 
-Only variables that are actually required by an implementation should be added to the runtime configuration. Secrets must never be committed.
+Only variables actually required by the implementation should be added. Secrets must never be committed.
 
-## Development
-
-Once the Astro application is initialized:
+## Local Development
 
 ```bash
 npm install
 npm run dev
 npm run build
-npm run preview
+npm run start
 ```
-
-## Deployment
-
-Target production domain:
-
-`https://ecommercesolutions.co.ke`
-
-Recommended deployment target: Cloudflare Pages.
-
-DNS and production secrets should be configured outside the repository. The repository must remain safe to publish or collaborate on without exposing credentials.
 
 ## Roadmap
 
 ### Phase 1 — Foundation
 
-- Astro project setup
-- Global layout
-- Navigation
-- Responsive design system
-- Homepage
+- Next.js App Router setup
+- shadcn configuration
+- Tailwind design tokens
+- 21st.dev component workflow
+- Global layout/navigation
+- Responsive homepage
 - WhatsApp CTA
 - SEO metadata
-- Basic analytics
 
 ### Phase 2 — Conversion
 
-- AI coaching package section/pages
+- Coaching package pages
 - Booking flow
 - Contact form
 - Free AI Opportunity Audit
@@ -337,18 +288,14 @@ DNS and production secrets should be configured outside the repository. The repo
 
 ## Repository Scope
 
-This repository is dedicated to **Ecommerce Solutions Kenya / ecommercesolutions.co.ke** and its AI coaching, automation, and digital-growth website.
+This repository is dedicated to **Ecommerce Solutions Kenya / ecommercesolutions.co.ke** and its AI coaching, automation and digital-growth website.
 
-It is separate from the existing MobDeals automation repository and should not inherit MobDeals-specific application logic, branding, database schemas, or deployment configuration unless explicitly required.
+It is separate from the existing MobDeals project and must not inherit MobDeals-specific application logic, branding, database schemas or deployment configuration unless explicitly required.
 
 ## Status
 
-**Project stage:** Planning / foundation
+**Project stage:** Frontend foundation initialized.
 
-**Production website:** Not yet implemented in this repository.
+**Primary market:** Kenya.
 
-**Primary domain:** `ecommercesolutions.co.ke`
-
-**Primary market:** Kenya
-
-**Primary conversion:** WhatsApp conversation / booked consultation
+**Primary conversion:** WhatsApp conversation / booked consultation.
