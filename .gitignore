@@ -1,8 +1,12 @@
 node_modules/
 dist/
+build/
+.next/
+out/
 .astro/
 .env
 .env.*
+.env*.local
 !.env.example
 .dev.vars
 .wrangler/
@@ -10,3 +14,4 @@ dist/
 .vscode/
 .idea/
 *.log
+*.tsbuildinfo
