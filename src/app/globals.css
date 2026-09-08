@@ -10,40 +10,46 @@
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
-  --primary: #1d4ed8;
+  --primary: #9b60e4;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
+  --secondary: #f8f7fc;
   --secondary-foreground: #0f172a;
-  --muted: #f8fafc;
+  --muted: #f7f8fb;
   --muted-foreground: #64748b;
-  --accent: #f97316;
+  --accent: #ec3463;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #1d4ed8;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #9b60e4;
+  --brand-teal: #2dcfbd;
+  --brand-violet: #9b60e4;
+  --brand-pink: #ec3463;
+  --brand-coral: #f26844;
+  --brand-amber: #f39b2b;
+  --brand-gradient: linear-gradient(135deg, #2dcfbd 0%, #9b60e4 32%, #ec3463 58%, #f26844 80%, #f39b2b 100%);
   --radius: 0.75rem;
 }
 
 .dark {
-  --background: #020617;
+  --background: #070912;
   --foreground: #f8fafc;
-  --card: #0f172a;
+  --card: #0f1322;
   --card-foreground: #f8fafc;
-  --popover: #0f172a;
+  --popover: #0f1322;
   --popover-foreground: #f8fafc;
-  --primary: #60a5fa;
-  --primary-foreground: #0f172a;
-  --secondary: #1e293b;
+  --primary: #9b60e4;
+  --primary-foreground: #ffffff;
+  --secondary: #151927;
   --secondary-foreground: #f8fafc;
-  --muted: #0f172a;
-  --muted-foreground: #94a3b8;
-  --accent: #fb923c;
-  --accent-foreground: #0f172a;
+  --muted: #0f1322;
+  --muted-foreground: #a5aec1;
+  --accent: #ec3463;
+  --accent-foreground: #ffffff;
   --destructive: #f87171;
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #60a5fa;
+  --border: #202638;
+  --input: #202638;
+  --ring: #9b60e4;
 }
 
 @theme inline {
@@ -72,15 +78,18 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground antialiased; }
+}
 
-  html {
-    scroll-behavior: smooth;
+@layer utilities {
+  .brand-gradient { background-image: var(--brand-gradient); }
+  .brand-gradient-text {
+    background-image: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
-
-  body {
-    @apply bg-background text-foreground antialiased;
-  }
+  .brand-gradient-ring { box-shadow: 0 0 0 1px rgb(155 96 228 / 0.2), 0 12px 40px rgb(236 52 99 / 0.12); }
 }
