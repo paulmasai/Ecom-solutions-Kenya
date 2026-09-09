@@ -7,14 +7,14 @@ export function FAQ() {
     <section className="section-space border-t">
       <div className="site-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div>
-          <p className="eyebrow">A little clarity</p>
+          <p className="eyebrow">AI coaching FAQs</p>
           <h2 className="section-heading mt-4">
-            Good questions.
+            Before you
             <br />
-            <span className="font-editorial italic">Straight answers.</span>
+            <span className="font-editorial italic">get started.</span>
           </h2>
           <Link href="/contact" className="text-link mt-7">
-            Ask us something else{" "}
+            Ask about AI coaching{" "}
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </div>

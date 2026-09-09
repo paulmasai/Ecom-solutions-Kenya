@@ -5,8 +5,8 @@ import { FinalCTA } from "@/components/marketing/final-cta";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Our Approach",
-  "AI coaching grounded in the everyday work of Kenyan businesses. Human guidance, practical implementation and tools you can keep using.",
+  "Our AI Coaching Approach",
+  "See how E Commerce Solutions Kenya teaches AI through real business tasks, live guidance and reusable templates, with scope and costs agreed upfront.",
   "/about",
 );
 
@@ -15,8 +15,8 @@ export default function AboutPage() {
     <>
       <PageIntro
         eyebrow="E Commerce Solutions Kenya"
-        title="Technology should give you more time for your business."
-        description="We help Kenyan business owners, creators and teams turn AI into something practical: a better reply, a simpler process, or a more consistent way to show up."
+        title="AI coaching that starts with your business."
+        description="You know your customers and your work. We help you use that knowledge with AI to draft replies, plan content and make repeated tasks easier to manage."
       />
       <section className="site-container grid items-center gap-12 pb-20 lg:grid-cols-2 lg:gap-20">
         <div className="relative aspect-[4/5] max-h-[580px] overflow-hidden rounded-lg">
@@ -29,28 +29,29 @@ export default function AboutPage() {
           />
         </div>
         <div>
-          <p className="eyebrow">The work comes first</p>
+          <p className="eyebrow">What you can expect from us</p>
           <h2 className="section-heading mt-4">
-            Keep the human.
+            Bring your work.
             <br />
-            <span className="font-editorial italic">Improve the process.</span>
+            <span className="font-editorial italic">Build your skills.</span>
           </h2>
           <p className="mt-6 leading-7 text-muted-foreground">
-            Running a business already asks a lot of you. Learning AI should
-            start with the work on your desk, using examples that fit your
-            customers, your voice and your priorities.
+            Between serving customers, checking orders and keeping up with
+            marketing, finding time to learn another tool can be difficult.
+            Our sessions use tasks you already need to do, with examples that
+            fit your customers, your budget and the way you work.
           </p>
           <p className="mt-5 leading-7 text-muted-foreground">
-            Our coaching combines explanation with implementation. We build
-            alongside you, document what works and help you make it a repeatable
-            part of your day.
+            We explain each step, build alongside you and write down the
+            process so you can use it again. You stay in charge of the prices,
+            promises and messages your business shares with customers.
           </p>
           <ul className="mt-8 space-y-5">
             {[
-              "Your business context shapes the work.",
-              "You review what AI creates.",
-              "You leave with usable workflows and materials.",
-              "Your scope and costs are agreed in advance.",
+              "Practise with tasks from your own business.",
+              "Learn how to check and improve AI drafts.",
+              "Keep recordings, templates and steps you can reuse.",
+              "Agree on the work and costs before you commit.",
             ].map((item) => (
               <li
                 key={item}

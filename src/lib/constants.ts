@@ -28,11 +28,11 @@ export const siteConfig = {
     : null,
   logoMark: "/images/ecommerce_solutions_kenya_icon_logo.png",
   description:
-    "Practical AI coaching, automation and digital growth systems for Kenyan business owners, creators and teams.",
+    "One-to-one AI coaching for Kenyan businesses. Learn to draft customer replies, plan content and manage follow-ups. Packages from KES 8,000.",
 };
 
 export function getWhatsAppUrl(
-  message = "Hello! I’d like to discuss AI coaching for my business.",
+  message = "Hello, I’d like to discuss AI coaching and find a package that fits my business.",
 ) {
   return siteConfig.whatsappNumber
     ? `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`
@@ -45,5 +45,5 @@ export const navigation = [
   { href: "/ai-coaching", label: "AI coaching" },
   { href: "/#how-it-works", label: "How it works" },
   { href: "/about", label: "About us" },
-  { href: "/resources", label: "Resources" },
+  { href: "/resources", label: "Free resources" },
 ];

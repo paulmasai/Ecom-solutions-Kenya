@@ -10,8 +10,8 @@ import { ResourceList } from "@/components/marketing/resource-list";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Practical AI Coaching for Kenyan Businesses",
-  "Practical, one-to-one AI coaching for Kenyan business owners, creators and teams. Build useful workflows for content, customers and growth.",
+  "AI Coaching in Kenya | E Commerce Solutions Kenya",
+  "Learn AI for your Kenyan business with one-to-one coaching. Draft customer replies, plan content and organise follow-ups. Packages from KES 8,000.",
   "/",
 );
 
@@ -22,9 +22,9 @@ export default function HomePage() {
       <div className="border-b bg-[#edeee7]">
         <div className="site-container grid grid-cols-2 gap-x-5 gap-y-4 py-6 text-[11px] font-medium text-muted-foreground sm:text-xs lg:grid-cols-4">
           {[
-            "Made for Kenyan businesses",
+            "For Kenyan shops, creators and teams",
             "Live, one-to-one coaching",
-            "Built around your real work",
+            "Practise with your own business tasks",
             "Online, wherever you are",
           ].map((item) => (
             <p key={item} className="flex items-center gap-2.5">
@@ -43,22 +43,22 @@ export default function HomePage() {
         <div className="site-container">
           <div className="scroll-reveal flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="eyebrow">A clear starting point</p>
+              <p className="eyebrow">AI coaching packages</p>
               <h2 className="section-heading mt-4">
-                Your pace.
+                Choose the support
                 <br />
-                <span className="font-editorial italic">Your next level.</span>
+                <span className="font-editorial italic">your business needs.</span>
               </h2>
             </div>
             <p className="max-w-sm text-base leading-7 text-muted-foreground">
-              Focused coaching. Useful systems. Choose the support that fits
-              where you are today.
+              Start with everyday AI skills, build a content and follow-up
+              process, or get your team working with AI. Compare what’s included.
             </p>
           </div>
           <Packages />
           <p className="mt-6 text-center text-xs leading-6 text-muted-foreground">
-            Prices in Kenyan shillings. Final scope and any tool costs are
-            agreed before you commit.
+            Starting prices in Kenyan shillings. We agree on the work, final
+            price and any separate tool costs before you commit.
           </p>
         </div>
       </section>
@@ -66,15 +66,15 @@ export default function HomePage() {
         <div className="site-container">
           <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div>
-              <p className="eyebrow">A useful place to begin</p>
+              <p className="eyebrow">Free business templates</p>
               <h2 className="section-heading mt-4">
-                Small steps.
+                Try AI on a task
                 <br />
-                <span className="font-editorial italic">Real momentum.</span>
+                <span className="font-editorial italic">you do every day.</span>
               </h2>
             </div>
             <Link href="/resources" className="text-link">
-              Explore free resources{" "}
+              See all free downloads{" "}
               <ArrowUpRight className="size-4" aria-hidden="true" />
             </Link>
           </div>

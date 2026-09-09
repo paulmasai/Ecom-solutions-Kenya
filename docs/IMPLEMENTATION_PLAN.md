@@ -23,7 +23,8 @@ Reviewed against the repository on 9 September 2026. This is a Next.js App Route
 - [x] Carry the selected package into a conversation brief
 - [x] Accessible enquiry form with validation, review and download
 - [x] Explicit WhatsApp/email handoff when those channels are configured
-- [x] Free self-guided AI opportunity audit with downloadable plan
+- [x] Free self-guided AI business check at `/audit` with downloadable plan
+- [x] Rewrite public copy, metadata, form states and downloads for Kenyan business customers
 - [ ] Persist contact and audit submissions through a validated server endpoint
 - [ ] Add spam protection, rate limits and suitable lead-data retention/consent
 - [ ] Add conversion events with a documented privacy approach

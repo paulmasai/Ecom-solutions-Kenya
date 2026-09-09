@@ -6,8 +6,8 @@ import { FinalCTA } from "@/components/marketing/final-cta";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "AI Coaching & Packages",
-  "Compare AI Starter, AI Growth and AI Pro VIP. Practical one-to-one coaching and workflow implementation from KES 8,000.",
+  "AI Coaching Packages & Prices",
+  "Compare AI coaching packages from KES 8,000. Learn customer replies, content planning and automation through live online sessions for Kenyan businesses.",
   "/ai-coaching",
 );
 
@@ -15,9 +15,9 @@ export default function CoachingPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Practical skills. Lasting value."
-        title="Learn AI by putting it to work."
-        description="Choose a focused starting point or build a deeper system. Every package brings your real business tasks into the session."
+        eyebrow="Online AI training for Kenyan businesses"
+        title="Choose the AI skills your business needs next."
+        description="Learn to handle customer replies, create content or organise follow-ups. Every package includes live coaching using your own business tasks, with a clear scope and price agreed upfront."
       />
       <section
         className="site-container pb-20"
@@ -25,8 +25,9 @@ export default function CoachingPage() {
       >
         <Packages />
         <p className="mt-6 text-center text-sm leading-6 text-muted-foreground">
-          Starting prices in KES. We confirm the final scope, pricing and any
-          separate tool subscriptions before you commit.
+          Starting prices in Kenyan shillings. Each session is 60 minutes.
+          Paid tools, messaging and hosting are separate where needed; we
+          explain the full costs before you commit.
         </p>
       </section>
       <Process />

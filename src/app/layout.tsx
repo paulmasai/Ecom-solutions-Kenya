@@ -7,7 +7,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "Practical AI Coaching | E Commerce Solutions Kenya",
+    default: "AI Coaching in Kenya | E Commerce Solutions Kenya",
     template: "%s | E Commerce Solutions Kenya",
   },
   description: siteConfig.description,

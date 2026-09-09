@@ -3,19 +3,19 @@ import { ArrowUpRight } from "lucide-react";
 
 const steps = [
   {
-    title: "Start with your business.",
+    title: "Choose a task worth improving.",
     description:
-      "We talk about what you do, what takes up your time and where AI could make a useful difference.",
+      "Tell us what you sell or do, which tools you use and what keeps you busy. We agree on a priority, the work involved and the price before coaching starts.",
   },
   {
-    title: "Learn it. Build it. Use it.",
+    title: "Build it together in a live session.",
     description:
-      "Work one-to-one with us on your actual tasks. Build at least one practical workflow during your coaching.",
+      "Join online and work through your own business examples with guidance. During coaching, we build at least one useful workflow and show you how to check the results.",
   },
   {
-    title: "Make it part of your day.",
+    title: "Keep using it after coaching.",
     description:
-      "Leave with recordings, prompts and a clear process. Get the follow-through included in your package.",
+      "Use your recordings, prompts and written steps to practise. Growth includes two weeks of WhatsApp support; Pro VIP includes 30 days of implementation support.",
   },
 ];
 
@@ -24,18 +24,18 @@ export function Process() {
     <section id="how-it-works" className="section-space border-y bg-[#edeee7]">
       <div className="site-container grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-24">
         <div className="scroll-reveal lg:sticky lg:top-32 lg:self-start">
-          <p className="eyebrow">Human guidance. Real implementation.</p>
+          <p className="eyebrow">How AI coaching works</p>
           <h2 className="section-heading mt-4">
-            We build
+            Learn by doing,
             <br />
-            <span className="font-editorial italic">with you.</span>
+            <span className="font-editorial italic">with guidance.</span>
           </h2>
           <p className="mt-6 max-w-sm leading-7 text-muted-foreground">
-            Practical coaching, shaped around your business. From “where do I
-            start?” to “I can do this.”
+            Bring a real task from your business. We’ll work through it with
+            you, step by step, so you understand how to do it again.
           </p>
           <Link href="/about" className="text-link mt-6">
-            Get to know our approach{" "}
+            Read about our approach{" "}
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </div>

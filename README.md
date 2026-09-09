@@ -12,13 +12,13 @@ Routes: `/`, `/ai-coaching`, `/about`, `/resources`, `/contact`, `/book` and `/a
 
 - Responsive shared navigation/footer, audience workflow tabs, package comparison and FAQ.
 - Local business imagery and a social sharing image.
-- Three downloadable resources and a self-guided audit with a downloadable action plan.
+- Three downloadable resources and a free AI business check with a downloadable task plan.
 - Enquiry preparation with validation and explicit WhatsApp/email handoff when configured.
 - Canonical metadata, generated sitemap/robots and a not-found page.
 
 **Not yet live:** backend lead storage, confirmed scheduling, production deployment and follow-up automations. Without business contact configuration, the interface clearly offers a downloadable brief and does not claim to send or book anything.
 
-See [the repository review](docs/REPO_REVIEW.md) and [remaining tasks](docs/IMPLEMENTATION_PLAN.md).
+See [the repository review](docs/REPO_REVIEW.md), [content review](docs/CONTENT_REVIEW.md) and [remaining tasks](docs/IMPLEMENTATION_PLAN.md).
 
 ## Offers
 

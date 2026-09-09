@@ -69,7 +69,7 @@ export function Header() {
           className="hidden h-11 rounded-full px-5 lg:inline-flex"
         >
           <Link href="/book">
-            Let’s talk <ArrowUpRight className="size-4" aria-hidden="true" />
+            Discuss AI coaching <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </Button>
         <button
@@ -107,7 +107,7 @@ export function Header() {
           ))}
           <Button asChild className="mt-5 h-12 w-full">
             <Link href="/book" onClick={() => setOpen(false)}>
-              Book your AI Mastery Call{" "}
+              Discuss AI coaching{" "}
               <ArrowUpRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>

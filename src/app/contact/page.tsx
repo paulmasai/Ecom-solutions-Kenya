@@ -6,8 +6,8 @@ import { siteConfig, whatsappUrl } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Contact Us",
-  "Talk to E Commerce Solutions Kenya about practical AI coaching, business automation and the right starting point for your business.",
+  "Contact Us About AI Coaching",
+  "Explore AI coaching for your Kenyan business. Prepare an enquiry about customer replies, content or automation, and discuss the scope and costs.",
   "/contact",
 );
 
@@ -15,18 +15,18 @@ export default function ContactPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Let’s start a conversation"
-        title="What could work better in your business?"
-        description="A repetitive task, a content challenge, an idea you want to explore — tell us what’s on your mind."
+        eyebrow="Contact E Commerce Solutions Kenya"
+        title="Which business task would you like help with?"
+        description="Too many customer questions to retype? Content you never get time to post? Tell us what you do and where you’re getting stuck. You don’t need to know which AI tool to choose."
       />
       <section className="site-container grid items-start gap-12 pb-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div>
           <h2 className="text-2xl font-medium tracking-tight">
-            A useful conversation comes first.
+            Start with your business, not a package.
           </h2>
           <p className="mt-5 text-sm leading-7 text-muted-foreground">
-            We’ll start with your priorities, help you understand your options
-            and agree on a practical next step.
+            We’ll discuss the task you want to improve, explain how coaching
+            could help and confirm the work and costs before you decide.
           </p>
           <div className="mt-7 space-y-3">
             {whatsappUrl && (
@@ -53,13 +53,14 @@ export default function ContactPage() {
             )}
             {!whatsappUrl && !siteConfig.contactEmail && (
               <p className="rounded-md bg-secondary p-5 text-sm leading-7 text-muted-foreground">
-                Our contact options are being updated. You can prepare and save
-                an enquiry here in the meantime.
+                Direct contact is not available on this website yet. You can
+                prepare and download an enquiry to keep for later. It will not
+                be sent to us.
               </p>
             )}
           </div>
           <Link href="/audit" className="text-link mt-6">
-            Explore a free AI opportunity audit{" "}
+            Try the free AI business check{" "}
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </div>

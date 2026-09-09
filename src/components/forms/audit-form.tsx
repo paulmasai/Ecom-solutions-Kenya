@@ -8,13 +8,13 @@ import { downloadText } from "@/lib/download";
 
 const opportunities = {
   replies: {
-    title: "Start with a customer reply workflow.",
+    title: "Build a set of replies you can reuse.",
     description:
-      "Create a small library of accurate answers to your most common questions, then use AI to help adapt the wording.",
+      "Start with the price, stock and delivery questions you answer most often. Give AI your confirmed details and use it to draft replies you can check and adapt.",
     steps: [
-      "List five questions your customers ask most often.",
+      "List five common questions from your WhatsApp chats, DMs or shop conversations. Leave out private customer details.",
       "Write down the correct answer using your real delivery, pricing and returns information.",
-      "Ask AI to draft a friendly reply using only those facts.",
+      "Ask AI for a short reply using only those facts, in the language your customer used. Check any translation.",
       "Review every draft before sending and keep the versions that work.",
     ],
     measure:
@@ -22,26 +22,26 @@ const opportunities = {
     resource: "/resources/customer-reply-prompts.txt",
   },
   content: {
-    title: "Start with a repeatable content workflow.",
+    title: "Turn one customer question into three posts.",
     description:
-      "Turn one useful idea from your business into a small set of posts you can review, refine and publish.",
+      "Use a question you already know how to answer. Turn it into helpful content for WhatsApp Status, Instagram or Facebook, then edit it in your own voice.",
     steps: [
       "Choose one question your audience regularly asks.",
       "Write down your answer, including a real example from your work.",
-      "Use AI to draft three different posts from that one idea.",
-      "Edit the facts and voice, then schedule the posts on your usual channels.",
+      "Ask AI to draft three posts: a direct answer, a useful tip and an explanation of your product or service.",
+      "Check the facts, add one next step for each reader and choose when to publish on your usual channels.",
     ],
     measure:
       "Track your drafting time and the conversations each post creates. Refine the formats that are useful to your audience.",
     resource: "/resources/content-planning-workbook.txt",
   },
   followup: {
-    title: "Start with a clear lead follow-up process.",
+    title: "Give each enquiry an owner and a next step.",
     description:
-      "Map what happens after an enquiry and make one repeatable step easier before automating the whole process.",
+      "Bring order to enquiries from WhatsApp, DMs, calls or forms. Test a simple follow-up process with your team before connecting automation tools.",
     steps: [
       "Write down where enquiries arrive and who is responsible for each one.",
-      "Create a simple record with the enquiry, its owner and the next action.",
+      "Use a shared sheet or your existing system to record the enquiry, who handles it and when to follow up.",
       "Draft a reusable follow-up message for your team to review.",
       "Test the process manually on a few enquiries before connecting automation.",
     ],
@@ -80,7 +80,7 @@ export function AuditForm() {
   if (result) {
     const suggestion = opportunities[result.task];
     const brief = [
-      "Your AI business opportunity — E Commerce Solutions Kenya",
+      "Your AI business check plan — E Commerce Solutions Kenya",
       "",
       `Business: ${result.business}`,
       `Goal: ${result.goal}`,
@@ -90,10 +90,10 @@ export function AuditForm() {
       "",
       ...suggestion.steps.map((step, index) => `${index + 1}. ${step}`),
       "",
-      "What to measure",
+      "How to check if it helps",
       suggestion.measure,
       "",
-      "This is a self-guided starting point based on your selected task, not a personalised business assessment.",
+      "This self-guided plan is selected by your chosen task. Adapt the steps to your business; it is not a personalised assessment.",
     ].join("\n");
     return (
       <div
@@ -101,7 +101,7 @@ export function AuditForm() {
         tabIndex={-1}
         className="rounded-lg border bg-white p-6 sm:p-10"
       >
-        <p className="eyebrow">Your starting point</p>
+        <p className="eyebrow">Your suggested task plan</p>
         <h2 className="mt-4 text-3xl leading-tight font-medium tracking-tight">
           {suggestion.title}
         </h2>
@@ -134,16 +134,16 @@ export function AuditForm() {
         <div className="mt-7 border-t pt-6">
           <h3 className="flex items-center gap-2 text-sm font-semibold">
             <Check className="size-4 text-primary" aria-hidden="true" />
-            What to measure
+            How to check if it helps
           </h3>
           <p className="mt-3 text-sm leading-7 text-muted-foreground">
             {suggestion.measure}
           </p>
         </div>
         <p className="mt-6 text-xs leading-6 text-muted-foreground">
-          This self-guided suggestion is based on the task you selected. It is a
-          starting point to explore, not a personalised business assessment.
-          Your answers have not been stored or sent.
+          Your chosen task selects this plan. Adapt the steps to your business;
+          this is not a personalised assessment. We haven’t saved or sent your
+          answers. Download the plan to keep it.
         </p>
         <div className="no-print mt-7 flex flex-wrap gap-3">
           <Button
@@ -156,7 +156,7 @@ export function AuditForm() {
           </Button>
           <Button asChild variant="outline" className="h-12">
             <a href={suggestion.resource} download>
-              Get the matching template{" "}
+              Download matching resource{" "}
               <Download className="size-4" aria-hidden="true" />
             </a>
           </Button>
@@ -166,7 +166,7 @@ export function AuditForm() {
             href="/book"
             className="text-link"
           >
-            Build it with us{" "}
+            Discuss AI coaching{" "}
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
           <button
@@ -184,7 +184,7 @@ export function AuditForm() {
 
   return (
     <form onSubmit={submit} className="rounded-lg border bg-white p-6 sm:p-10">
-      <p className="eyebrow">Three questions. One useful direction.</p>
+      <p className="eyebrow">Three questions · No sign-up</p>
       <div className="mt-8 space-y-7">
         <div>
           <label htmlFor="audit-business" className="field-label">
@@ -228,7 +228,7 @@ export function AuditForm() {
         </div>
         <div>
           <label htmlFor="audit-goal" className="field-label">
-            03. What would you like to make room for?
+            03. What would help your business most?
           </label>
           <select
             id="audit-goal"
@@ -248,16 +248,16 @@ export function AuditForm() {
         </div>
       </div>
       <Button type="submit" size="lg" className="mt-8 h-12 w-full sm:w-auto">
-        Find my starting point{" "}
+        Show my suggested plan{" "}
         <ArrowUpRight className="size-4" aria-hidden="true" />
       </Button>
       <p className="mt-5 text-xs leading-6 text-muted-foreground">
-        No email needed. Your answers stay in this page. You can download your
-        suggested plan at the end.
+        All three questions are required. We don’t save or send your answers.
+        You can download your plan on the next screen.
       </p>
       <noscript>
         <p className="mt-4 text-sm">
-          Enable JavaScript to use the audit, or download a checklist from our
+          Enable JavaScript to use the business check, or download a checklist from our
           resources page.
         </p>
       </noscript>

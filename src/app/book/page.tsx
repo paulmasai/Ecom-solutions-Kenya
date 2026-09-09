@@ -7,8 +7,8 @@ import { siteConfig, whatsappUrl } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Book an AI Mastery Call",
-  "Start a conversation about your business, explore practical AI opportunities and choose the coaching support that fits your goals.",
+  "Discuss AI Coaching",
+  "Prepare for an AI coaching conversation. Outline your business task, compare suitable packages and understand the scope and costs before you decide.",
   "/book",
 );
 
@@ -16,20 +16,20 @@ export default function BookPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Your AI Mastery Call"
-        title="Let’s find your next useful step."
-        description="Bring your business questions. We’ll look at where AI could help, what you want to achieve and the support that makes sense for you."
+        eyebrow="Discuss AI coaching for your business"
+        title="Let’s work out where AI could help you."
+        description="Start with one task: customer replies, content or follow-ups. We’ll discuss what you want to improve, which package fits and what it would cost. No package decision needed yet."
       />
       <section className="site-container grid items-start gap-12 pb-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div>
           <h2 className="text-2xl font-medium tracking-tight">
-            Come with a task. Leave with a direction.
+            What we’ll cover in the conversation
           </h2>
           <ul className="mt-6 space-y-5">
             {[
-              "Talk through your business and priorities.",
-              "Explore a practical workflow worth building.",
-              "Discuss the right package, scope and costs.",
+              "Your business, customers and the tools you use.",
+              "One repeated task you’d like to make easier.",
+              "The coaching, setup work and costs involved.",
             ].map((item) => (
               <li key={item} className="flex gap-3 text-sm leading-6">
                 <Check
@@ -49,7 +49,7 @@ export default function BookPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Choose a time{" "}
+                    Choose a call time{" "}
                     <ArrowUpRight className="size-4" aria-hidden="true" />
                     <span className="sr-only">
                       {" "}
@@ -58,27 +58,26 @@ export default function BookPage() {
                   </a>
                 </Button>
                 <p className="mt-4 text-xs leading-6 text-muted-foreground">
-                  You’ll see availability and confirm your time on our
-                  scheduling page.
+                  The scheduling page opens in a new tab. Choose an available
+                  time there to complete your booking.
                 </p>
               </>
             ) : whatsappUrl ? (
               <>
                 <Button asChild size="lg" className="h-12">
                   <a href={whatsappUrl}>
-                    Arrange a time on WhatsApp{" "}
+                    Arrange a call on WhatsApp{" "}
                     <ArrowUpRight className="size-4" aria-hidden="true" />
                   </a>
                 </Button>
                 <p className="mt-4 text-xs leading-6 text-muted-foreground">
-                  We’ll agree on a suitable time together.
+                  Send us a message to agree on a suitable call time.
                 </p>
               </>
             ) : (
               <p className="rounded-md bg-secondary p-5 text-sm leading-7 text-muted-foreground">
-                Online scheduling is currently unavailable. You can prepare and
-                download a brief for your conversation. This does not reserve a
-                session.
+                Call scheduling is not available on this website yet. You can
+                prepare and download an enquiry for later; it does not book a call.
               </p>
             )}
           </div>
@@ -87,10 +86,10 @@ export default function BookPage() {
           fallback={
             <div className="rounded-lg border bg-white p-8">
               <p role="status" className="text-sm text-muted-foreground">
-                Loading your conversation brief…
+                Loading your enquiry form…
               </p>
               <noscript>
-                Enable JavaScript to prepare your brief. Use the scheduling or
+                Enable JavaScript to prepare your enquiry. Use the scheduling or
                 contact options on this page if available.
               </noscript>
             </div>

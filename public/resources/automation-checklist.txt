@@ -1,39 +1,51 @@
 E COMMERCE SOLUTIONS KENYA
-Find your first useful automation
+Choose one task to automate
+A free checklist for Kenyan businesses and teams
 
-CHOOSE ONE TASK
+Start with a repeated task you understand. For example, you could track quotation requests from WhatsApp, assign each one to a team member and set a follow-up reminder. Test the steps manually before paying for automation tools.
+
+1. CHOOSE ONE TASK
 Task: ____________________
 How often do you do it? ____________________
 Who owns it today? ____________________
 What starts it? ____________________
 What should happen at the end? ____________________
 
-IS THIS A GOOD CANDIDATE?
+2. CHECK WHETHER IT IS A GOOD FIT
 [ ] The task repeats regularly.
 [ ] Its inputs and expected output are clear.
 [ ] The current steps can be written down.
 [ ] You can spot and correct errors.
 [ ] Someone will own the process after it is automated.
-[ ] Any customer information can be handled appropriately.
+[ ] The people and tools involved only receive the customer details they need.
 
-MAP THE SIMPLEST PROCESS
+3. MAP THE STEPS
 Trigger -> input -> action -> review -> next step
 
-START MANUALLY
-Test the written process with a few examples before connecting tools.
-Keep human review for customer messages, sensitive decisions and uncertain outputs.
-An automation does not always need AI: sometimes a form, spreadsheet and notification are enough.
+Example to adapt, not a system already connected to your business:
+New quotation request -> record the request -> assign a person -> check the details -> send an approved reply and set a follow-up date.
 
-PLAN FOR EXCEPTIONS
+Use your existing spreadsheet or business system to test a few enquiries first. You may only need a reminder or a clearer process. AI can help draft a message; a person should check its details before sending it.
+
+4. PLAN FOR PROBLEMS
 What should happen if information is missing?
 Who is notified if a step fails?
 How can someone pause the process?
 Where will records be stored, and who can access them?
 
-MEASURE THE RESULT
-Compare time spent before and after.
-Check accuracy, missed items and customer experience.
-Include tool subscription and message costs in your comparison.
-Do not claim savings until you have measured them.
+What happens if an internet or tool outage interrupts the task?
+Which steps can we still do manually?
 
-https://ecommercesolutions.co.ke
+5. CHECK THE COST AND RESULT
+Time spent per task before the trial: ____________________
+Time spent per task during the trial, including checking: ____________________
+Errors or missed follow-ups before and during the trial: ____________________
+Setup, subscription and messaging costs in KES: ____________________
+Person responsible for reviewing the process: ____________________
+Review date: ____________________
+
+Compare the results before expanding the setup. Include time spent fixing errors as well as the tool costs. Do not assume it saves time or money until you have measured it.
+
+WANT HELP BUILDING THE PROCESS?
+Discuss the task and the tools you already use. AI Pro VIP includes three agreed automations, team training and 30 days of implementation support, from KES 60,000. Confirm the scope and any separate tool costs before committing.
+Compare packages: https://ecommercesolutions.co.ke/ai-coaching

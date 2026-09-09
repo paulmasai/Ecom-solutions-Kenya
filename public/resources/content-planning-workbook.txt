@@ -1,40 +1,57 @@
 E COMMERCE SOLUTIONS KENYA
-Your next week of content
+Plan a week of business content
+A free workbook for Kenyan business owners and creators
 
-YOUR ONE GOAL
-This week I want to help my audience: ____________________
+Use your customers' real questions to plan useful content for WhatsApp Status, Instagram or Facebook. This gives you seven starting points. Choose a posting pace you can keep up with; you do not have to publish every day.
 
-YOUR AUDIENCE
-Who needs this information? ____________________
-What question are they asking? ____________________
+SET ONE BUSINESS GOAL
+This week I want people to: [ask about a product / enquire about a service / understand what I offer]
+Product or service to focus on: ____________________
+Who it is for: ____________________
+Question my customers keep asking: ____________________
+Channel where I already reach them: ____________________
+How interested customers can contact me: ____________________
 
-YOUR SOURCE IDEA
-Write a helpful answer using your own experience.
-Add a real example. Avoid confidential client information.
+GATHER YOUR FACTS
+Write a helpful answer to that customer question using your own experience.
+Add the product or service details, current KES price if relevant, and any confirmed location or delivery information.
+List photos, demonstrations or examples you have permission to share.
+Leave out private customer information.
 ________________________________________________________
 
 YOUR SEVEN POST STARTING POINTS
-Monday: Answer a common customer question.
-Tuesday: Show a useful part of your process.
-Wednesday: Share a tip someone can apply today.
-Thursday: Explain one common mistake and how to avoid it.
-Friday: Show your product/service solving a specific problem.
-Saturday: Share the story behind something you make or do.
-Sunday: Ask your audience a question about their week.
+Monday - Answer a question: Give the useful answer first. Invite a follow-up question.
+Tuesday - Show the process: Explain how you prepare, make or deliver your work. Show an approved photo if available.
+Wednesday - Share a practical tip: Help someone use, choose or care for what you sell. Invite them to save the tip.
+Thursday - Help people choose: Explain who a product or service suits and what they should check before buying.
+Friday - Explain the offer: State what is included and the confirmed price. Make the enquiry step clear.
+Saturday - Show the person behind the work: Share a real lesson or the reason you offer this service. Keep it specific.
+Sunday - Listen: Ask one question about what your audience needs help with next.
 
 OPTIONAL AI PROMPT
-Using only the information below, help me turn one idea into three social posts.
-Audience: [your audience]
-Idea and verified facts: [your source idea]
-Tone: [how your business speaks]
-For each post, suggest an opening, a short body and a clear next step.
-Use natural language. Do not invent results, customer quotes or claims.
+Create seven short post drafts using the plan and facts below.
+Audience: [your customers]
+Business goal: [your one goal]
+Channel: [WhatsApp Status, Instagram or Facebook]
+Verified facts and source idea: [paste your notes]
+Language and tone: [how you normally speak to customers]
+Contact method: [a real, working contact option]
+
+For each draft, give an opening, a short body, a suggested image I could supply and one relevant next step. Keep WhatsApp Status text especially brief. Vary the purpose of each post using the seven starting points above.
+Use only my facts. Do not invent testimonials, results, offers, discounts, limited stock or deadlines. Ask me for anything missing. Do not promise that a post will produce sales.
 
 BEFORE PUBLISHING
-[ ] Check all facts, names and claims.
-[ ] Replace generic phrases with your own words.
-[ ] Check that any photos or quotes are approved for use.
-[ ] Make the next step clear.
-[ ] Record what generated useful conversations so you can improve next week.
+[ ] Facts, KES prices, availability and contact details are current.
+[ ] Each post helps the reader understand or do something.
+[ ] Photos, examples and quotes are approved for use.
+[ ] The wording sounds like my business, and translations are checked.
+[ ] Each post has one clear next step, with a working contact option where needed.
 
-https://ecommercesolutions.co.ke
+REVIEW THE WEEK
+Which post led to a useful customer question? ____________________
+Which enquiries became orders or bookings? ____________________
+What should I explain more clearly next week? ____________________
+
+WANT TO BUILD A CONTENT ROUTINE WITH GUIDANCE?
+AI Growth includes a content workflow, 10 business prompts and two weeks of WhatsApp support. Four live sessions start at KES 25,000; scope and separate tool costs are agreed upfront.
+Compare packages: https://ecommercesolutions.co.ke/ai-coaching

@@ -30,12 +30,12 @@ export default function UnderlineHeroSection() {
           id="hero-heading"
           className="hero-enter max-w-2xl text-[clamp(2.6rem,5.1vw,4.65rem)] leading-[1.06] font-medium tracking-[-0.055em]"
         >
-          Your business.
+          Learn AI.
           <br />
-          Your ambition.
+          Save time on
           <br />
           <span className="relative inline-block pb-3 font-editorial font-normal italic text-[#efb597]">
-            An AI advantage.
+            everyday work.
             <svg
               className="hero-underline absolute inset-x-0 bottom-0 h-3 w-full"
               viewBox="0 0 440 16"
@@ -53,9 +53,8 @@ export default function UnderlineHeroSection() {
           </span>
         </h1>
         <p className="hero-enter hero-enter-delay mt-7 max-w-[27rem] text-base leading-7 text-white/80 sm:text-lg">
-          Spend less time on the repetitive work.
-          <br className="hidden sm:block" /> Learn practical AI systems for your
-          content, customers and everyday business.
+          Learn to draft WhatsApp replies, write product descriptions and plan
+          content. Get one-to-one coaching built around your Kenyan business.
         </p>
         <div className="hero-enter hero-enter-last mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-7">
           <Button
@@ -64,7 +63,7 @@ export default function UnderlineHeroSection() {
             className="h-13 rounded-full bg-[#edab8d] px-6 text-[#202c2b] hover:bg-[#f4bea4]"
           >
             <Link href="/book">
-              Book your AI Mastery Call{" "}
+              Discuss AI coaching{" "}
               <ArrowUpRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>
@@ -72,16 +71,19 @@ export default function UnderlineHeroSection() {
             href="/ai-coaching"
             className="inline-flex min-h-11 items-center gap-3 text-sm font-medium text-white underline-offset-4 hover:underline"
           >
-            Explore coaching{" "}
+            See packages & prices{" "}
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
+        <p className="hero-enter hero-enter-last mt-5 text-xs leading-6 text-white/80">
+          Online sessions · Packages from KES 8,000 · No AI experience needed
+        </p>
         <a
           href="#outcomes"
           className="hero-enter hero-enter-last mt-8 inline-flex min-h-11 items-center gap-3 text-[10px] tracking-[0.12em] text-white/65"
         >
-          <ArrowDown className="size-4" aria-hidden="true" /> A LITTLE LESS
-          BUSY. A LOT MORE POSSIBLE.
+          <ArrowDown className="size-4" aria-hidden="true" /> SEE WHAT YOU CAN
+          BUILD
         </a>
       </div>
     </section>

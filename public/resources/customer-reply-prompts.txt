@@ -1,33 +1,54 @@
 E COMMERCE SOLUTIONS KENYA
-Customer reply prompt template
+Reply to price and delivery questions
+A free AI prompt for Kenyan shops and service businesses
 
-1. Gather the facts
-- What is the customer asking?
-- What is the correct product/service information?
-- What is your delivery area, price and timeframe?
-- What should the customer do next?
+Use this when you keep answering the same questions on WhatsApp, Instagram or email. Copy the prompt, replace the brackets with your own facts, then review the reply before sending it.
 
-2. Copy and complete this prompt
+1. GET THE DETAILS RIGHT
+- What exactly is the customer asking?
+- What product or service do they mean? Is it currently available?
+- What is the confirmed price in KES? Does delivery cost extra?
+- Can you serve their location? Which delivery details still need checking?
+- What one next step should the customer take?
 
-Help me draft a short, helpful reply to a customer.
-My business: [describe your business]
-My tone: [friendly, professional, warm, etc.]
+2. COPY THIS PROMPT
+
+Draft two short replies to this customer: one direct, one warmer. Keep each under 80 words and make it easy to read on a phone.
+
+My business: [what I sell or do]
+Channel: [WhatsApp, Instagram or email]
 Customer question: [remove names, phone numbers and private details]
-Verified facts: [only facts you can confirm]
-Next step: [what the customer should do]
+Confirmed product or service details: [facts only]
+Price and currency: [confirmed amount in KES]
+Availability: [confirmed stock or booking availability]
+Delivery or service area and costs: [confirmed details, or unknown]
+Language: [English, Kiswahili or the customer's preferred language]
+Tone: [how my business normally speaks]
+Next step: [one action, such as asking which size they need]
 
-Use only the facts I provide. If something is missing, tell me what I need to check.
-Do not invent prices, stock availability, delivery promises or policies.
-Keep the reply under 80 words and give me two versions.
+Answer the question first. Use only the facts above. If a detail is missing, list what I need to check separately from the customer reply. Do not invent discounts, availability, delivery dates, guarantees or payment instructions. Avoid pressure and unnecessary slang.
 
-3. Review before sending
-[ ] Are every price, date and product detail correct?
-[ ] Does it answer the customer's actual question?
-[ ] Does it sound like our business?
-[ ] Is the next step clear?
-[ ] Have I kept private customer information out of the prompt?
+3. SEE A WORKED EXAMPLE
 
-Keep useful approved replies in a shared document for your team.
-AI drafts are a starting point; a person should check them.
+Illustration only. These are fictional shop details, not an offer from E Commerce Solutions Kenya.
 
-https://ecommercesolutions.co.ke
+Customer: "Hi! Is the blue bag available, and do you deliver to Nakuru?"
+Confirmed facts: Blue bag in stock; KES 1,800; delivery to Nakuru costs KES 300; delivery timing still needs checking.
+Next step: Ask whether the customer wants you to check the delivery timing.
+
+Possible reply:
+"Hi! Yes, the blue bag is available at KES 1,800. Delivery to Nakuru is KES 300, bringing the total to KES 2,100. Would you like me to check the delivery timing for you?"
+
+4. CHECK BEFORE YOU SEND
+[ ] Every price, total and product detail matches your current information.
+[ ] Delivery costs and any unconfirmed details are clear.
+[ ] The reply answers what the customer actually asked.
+[ ] The language sounds natural; any translation has been checked.
+[ ] There is one useful next step.
+[ ] No private customer details were pasted into the AI tool.
+
+Save approved replies in a shared document. Update them whenever your prices, stock or policies change. AI drafts the wording; you check and send the message.
+
+WANT HELP APPLYING THIS TO YOUR BUSINESS?
+AI Starter includes customer reply and product description work, with two live coaching sessions from KES 8,000. Scope and any separate tool costs are agreed before you commit.
+Compare packages: https://ecommercesolutions.co.ke/ai-coaching

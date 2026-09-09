@@ -14,43 +14,43 @@ import { cn } from "@/lib/utils";
 
 const outcomes = [
   {
-    label: "Business owners",
+    label: "Shops & services",
     icon: MessageSquare,
-    title: "Give every customer a better reply.",
+    title: "Answer customer questions without starting from scratch.",
     description:
-      "Turn the questions you answer every day into a consistent, helpful response workflow. Keep your voice. Get your time back.",
+      "Still typing the same answers about prices, stock and delivery? Build reply templates for your shop, salon or restaurant, then use AI to adapt each draft.",
     inputLabel: "A familiar customer question",
     input: "“Hi! Is this available, and do you deliver to Nakuru?”",
-    outputLabel: "Your business knowledge + AI",
+    outputLabel: "Draft from your confirmed details",
     output:
-      "A clear draft with the right product details, delivery information and next step — ready for you to check.",
-    takeaway: "Less typing. More personal conversations.",
+      "A reply covering availability, your delivery fee and the next step. You supply the facts, check the wording and send it yourself.",
+    takeaway: "Reusable replies that still sound like your business.",
   },
   {
     label: "Creators & coaches",
     icon: PenLine,
-    title: "One good idea. A week of content.",
+    title: "Turn what you know into posts worth reading.",
     description:
-      "Build a repeatable way to turn your expertise into useful posts, captions and emails that sound like you.",
+      "Use your own ideas to draft Instagram captions, WhatsApp Status updates and emails. Build a plan you can return to when client work gets busy.",
     inputLabel: "Start with what you know",
-    input: "One topic, a voice note or a video you’ve already made.",
-    outputLabel: "Your expertise + a content workflow",
+    input: "A question a client asked, or a tip from a video you’ve already made.",
+    outputLabel: "One idea, several useful drafts",
     output:
-      "A set of post ideas, draft captions and an email outline, shaped around your audience and ready for your edit.",
-    takeaway: "More consistency. Less blank-page time.",
+      "Three post angles and an email outline, each with a clear next step for the reader. Add your voice and check the facts before publishing.",
+    takeaway: "A content routine you can repeat each week.",
   },
   {
     label: "Teams & agencies",
     icon: Workflow,
-    title: "Keep good leads moving forward.",
+    title: "Give every enquiry a clear next step.",
     description:
-      "Connect the repetitive steps between an enquiry and a follow-up, so your team can focus on the conversation.",
+      "When enquiries arrive in different places, follow-ups are easy to miss. Map who responds, what happens next and which repeated steps you can automate.",
     inputLabel: "A new enquiry comes in",
-    input: "A potential customer shares what they need through your form.",
-    outputLabel: "A clear process + automation",
+    input: "A potential customer asks your team for a quotation.",
+    outputLabel: "Record, assign, then follow up",
     output:
-      "An organised lead record, a notification for the right person and a follow-up draft for review.",
-    takeaway: "Clear ownership. Fewer missed follow-ups.",
+      "A record of the enquiry, a reminder for the person handling it and a follow-up draft to check before sending.",
+    takeaway: "A shared process your team can follow.",
   },
 ];
 
@@ -77,18 +77,18 @@ export function Outcomes() {
       <div className="site-container">
         <div className="scroll-reveal flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
-            <p className="eyebrow">Made for the way you work</p>
+            <p className="eyebrow">AI for your everyday business tasks</p>
             <h2 className="section-heading mt-4">
-              Big possibilities.
+              What could you
               <br />
               <span className="font-editorial italic">
-                Everyday applications.
+                use AI for?
               </span>
             </h2>
           </div>
           <p className="max-w-sm text-base leading-7 text-muted-foreground">
-            You don’t need another tool to figure out. You need a better way to
-            get things done.
+            Start with the work already on your plate. These examples show
+            what we can build and practise together during coaching.
           </p>
         </div>
         <div
@@ -147,7 +147,7 @@ export function Outcomes() {
                     {current.description}
                   </p>
                   <Link href="/ai-coaching" className="text-link mt-6">
-                    Find your starting point{" "}
+                    Compare coaching packages{" "}
                     <ArrowUpRight className="size-4" aria-hidden="true" />
                   </Link>
                 </div>

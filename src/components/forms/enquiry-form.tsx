@@ -53,18 +53,18 @@ export function EnquiryForm({
     const message = String(data.get("message") ?? "").trim();
     const selected =
       packages.find((pkg) => pkg.slug === data.get("package"))?.name ??
-      "I’d like guidance choosing a package";
+      "Please help me choose a package";
     const nextErrors: Partial<Record<Fields, string>> = {};
     if (name.length < 2)
-      nextErrors.name = "Please enter your name (at least 2 characters).";
+      nextErrors.name = "Enter your name using at least 2 characters.";
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       nextErrors.email =
-        "Please enter a valid email address, or leave this blank.";
+        "Use an email address like you@example.com, or leave this field blank.";
     if (business.length < 2)
-      nextErrors.business = "Please tell us a little about your business.";
+      nextErrors.business = "Enter your business name or type using at least 2 characters.";
     if (message.length < 10)
       nextErrors.message =
-        "Please add at least 10 characters about what you’d like help with.";
+        "Describe the task you need help with using at least 10 characters.";
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) {
       const first = Object.keys(nextErrors)[0];
@@ -81,7 +81,7 @@ export function EnquiryForm({
     setSummary(
       [
         booking
-          ? "AI Mastery Call — conversation brief"
+          ? "AI coaching conversation — enquiry"
           : "E Commerce Solutions Kenya — enquiry",
         "",
         `Name: ${name}`,
@@ -98,7 +98,7 @@ export function EnquiryForm({
   if (summary) {
     const whatsapp = getWhatsAppUrl(summary);
     const email = siteConfig.contactEmail
-      ? `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(booking ? "AI Mastery Call enquiry" : "AI coaching enquiry")}&body=${encodeURIComponent(summary)}`
+      ? `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(booking ? "AI coaching call enquiry" : "AI coaching enquiry")}&body=${encodeURIComponent(summary)}`
       : null;
     return (
       <div
@@ -106,15 +106,15 @@ export function EnquiryForm({
         tabIndex={-1}
         className="rounded-lg border bg-white p-6 sm:p-9"
       >
-        <p className="eyebrow">Ready for your review</p>
+        <p className="eyebrow">Preview · Nothing sent yet</p>
         <h2 className="mt-4 text-2xl font-medium tracking-tight">
-          Your {booking ? "conversation brief" : "enquiry"} is ready.
+          Review your enquiry.
         </h2>
         <p className="mt-4 text-sm leading-6 text-muted-foreground">
           {hasContact
-            ? "Review it below, then open WhatsApp or email to send it. Nothing has been sent yet."
-            : "Save a copy of your brief. Contact options are currently unavailable, so nothing has been sent."}{" "}
-          {booking && "This does not reserve or confirm a session."}
+            ? "Check your details, then open an available contact option below. You’ll need to press send in WhatsApp or your email app."
+            : "Download a copy to keep. Direct contact is not available here yet, so this enquiry has not been sent to us."}{" "}
+          {booking && "Preparing an enquiry does not book a call."}
         </p>
         <pre className="my-6 rounded-md bg-secondary p-5 font-sans text-sm leading-7 whitespace-pre-wrap break-words">
           {summary}
@@ -124,7 +124,7 @@ export function EnquiryForm({
             <Button asChild className="h-12">
               <a href={whatsapp}>
                 <MessageCircle className="size-4" aria-hidden="true" />
-                Continue in WhatsApp
+                Open WhatsApp draft
               </a>
             </Button>
           )}
@@ -147,7 +147,7 @@ export function EnquiryForm({
             onClick={() => downloadText("ai-coaching-enquiry.txt", summary)}
           >
             <Download className="size-4" aria-hidden="true" />
-            Download brief
+            Download enquiry
           </Button>
         </div>
         <button
@@ -168,14 +168,12 @@ export function EnquiryForm({
       className="rounded-lg border bg-white p-6 sm:p-9"
     >
       <h2 className="text-2xl font-medium tracking-tight">
-        {booking
-          ? "Prepare your conversation brief."
-          : "Tell us what you have in mind."}
+        Prepare your enquiry.
       </h2>
       <p className="mt-3 text-sm leading-6 text-muted-foreground">
         {hasContact
-          ? "Prepare a short enquiry, then choose how to send it."
-          : "Prepare and download your enquiry while contact options are being updated."}{" "}
+          ? "Add your details, preview your message, then choose an available contact option to send it."
+          : "Use this form to write and download an enquiry for later. It does not send a message to us."}{" "}
         Required fields are marked *.
       </p>
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -241,7 +239,7 @@ export function EnquiryForm({
             aria-invalid={Boolean(errors.business)}
             aria-describedby={errors.business ? "business-error" : undefined}
             className="form-control"
-            placeholder="For example, an online clothing shop"
+            placeholder="Clothing shop in Nakuru"
           />
           {errors.business && (
             <p id="business-error" className="mt-2 text-xs text-destructive">
@@ -251,7 +249,7 @@ export function EnquiryForm({
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="package" className="field-label">
-            What are you interested in?
+            Coaching package (optional)
           </label>
           <select
             id="package"
@@ -259,7 +257,7 @@ export function EnquiryForm({
             defaultValue={draft.package}
             className="form-control"
           >
-            <option value="">Help me find the right starting point</option>
+            <option value="">Help me choose a package</option>
             {packages.map((pkg) => (
               <option key={pkg.slug} value={pkg.slug}>
                 {pkg.name} — from KES {pkg.price}
@@ -282,7 +280,7 @@ export function EnquiryForm({
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
             className="form-control resize-y"
-            placeholder="Tell us about a task you’d like to simplify or a goal you’re working towards."
+            placeholder="For example, I spend too much time replying to price and delivery questions on WhatsApp."
           />
           {errors.message && (
             <p id="message-error" className="mt-2 text-xs text-destructive">
@@ -292,17 +290,17 @@ export function EnquiryForm({
         </div>
       </div>
       <p className="mt-6 text-xs leading-6 text-muted-foreground">
-        Your details stay in this page until you choose to share them through
-        WhatsApp or email. We don’t store this form. Avoid including customer
-        records or confidential information.
+        We don’t save or send this form automatically. Download your enquiry
+        or use an available contact option before leaving the page. Please
+        leave out private customer details.
       </p>
       <Button type="submit" size="lg" className="mt-6 h-12 w-full sm:w-auto">
-        Prepare {booking ? "my brief" : "my enquiry"}{" "}
+        Preview my enquiry{" "}
         <ArrowUpRight className="size-4" aria-hidden="true" />
       </Button>
       <noscript>
         <p className="mt-4 text-sm text-destructive">
-          JavaScript is needed to prepare a brief. Use the contact options on
+          Enable JavaScript to preview your enquiry. Use the contact options on
           this page if available.
         </p>
       </noscript>

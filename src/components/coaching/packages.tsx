@@ -95,7 +95,7 @@ export function Packages() {
               href={`/book?package=${pkg.slug}`}
               aria-label={`Discuss ${pkg.name}`}
             >
-              Let’s get started{" "}
+              Discuss {pkg.name}{" "}
               <ArrowUpRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>

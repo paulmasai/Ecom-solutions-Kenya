@@ -11,9 +11,8 @@ export function Footer() {
           <div>
             <Brand />
             <p className="mt-5 max-w-xs text-sm leading-6 text-muted-foreground">
-              Practical AI. Human guidance.
-              <br />
-              More room to grow your business.
+              One-to-one AI coaching for Kenyan business owners, creators and
+              teams. Learn with the tasks you do every day.
             </p>
           </div>
           <div>
@@ -34,18 +33,18 @@ export function Footer() {
             <p className="eyebrow text-muted-foreground">Take the next step</p>
             <div className="mt-4 flex flex-col items-start gap-1">
               <Link href="/book" className="text-link font-normal">
-                Book a conversation{" "}
+                Discuss AI coaching{" "}
                 <ArrowUpRight className="size-4" aria-hidden="true" />
               </Link>
               <Link href="/audit" className="text-link font-normal">
-                Free AI opportunity audit
+                Free AI business check
               </Link>
               <Link href="/contact" className="text-link font-normal">
                 Contact us
               </Link>
               {whatsappUrl && (
                 <a href={whatsappUrl} className="text-link font-normal">
-                  WhatsApp{" "}
+                  Chat on WhatsApp{" "}
                   <ArrowUpRight className="size-4" aria-hidden="true" />
                 </a>
               )}
@@ -54,7 +53,7 @@ export function Footer() {
         </div>
         <div className="mt-12 flex flex-col justify-between gap-4 border-t border-foreground/15 pt-7 text-xs text-muted-foreground sm:flex-row">
           <p>© {new Date().getFullYear()} E Commerce Solutions Kenya.</p>
-          <p>Built around Kenyan businesses. Open to the world.</p>
+          <p>Online coaching in Kenya and for Kenyans abroad.</p>
         </div>
       </div>
     </footer>

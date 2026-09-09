@@ -4,6 +4,8 @@ Visual thesis: a warm, editorial business consultancy with tactile photography, 
 
 Content plan: a full-width photographic hero establishes practical AI coaching; outcome tabs show a concrete workflow; a short process explains delivery; package comparison clarifies scope and cost; resources and FAQs reduce uncertainty; an audit or conversation provides the next step.
 
+Copy direction: clear English for Kenyan business owners, using KES prices and concrete examples from WhatsApp enquiries, product descriptions, content and follow-ups. Prefer specific tasks over slogans. Use “Discuss AI coaching” for the conversation path, “enquiry” for the local form output and “Free AI business check” for `/audit`. Keep package facts and available contact actions accurate. See [the content review](docs/CONTENT_REVIEW.md).
+
 Interaction thesis: stagger the hero copy and draw its existing 21st.dev underline, reveal supporting sections as they enter the viewport where supported, and use short tab/menu/arrow transitions to clarify interaction. Respect reduced motion throughout.
 
 ## System
