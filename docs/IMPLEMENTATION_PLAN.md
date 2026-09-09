@@ -13,7 +13,8 @@ Reviewed against the repository on 9 September 2026. This is a Next.js App Route
 - [x] Page metadata, canonical URLs, social image, robots and sitemap
 - [x] Dedicated not-found page
 - [x] Static-export preview command compatible with `output: "export"`
-- [ ] Configure and verify production WhatsApp/email/scheduling details
+- [x] Configure owner-provided public WhatsApp/email defaults and local build settings
+- [ ] Verify receipt of a real enquiry after deployment; configure scheduling if needed
 - [ ] Restore a valid development-only 21st.dev API key for new registry imports
 
 ## Phase 2 — Conversion
@@ -61,7 +62,7 @@ The enquiry form currently prepares a brief in the browser; it does not submit t
 ## Launch gates
 
 - Production domain and hosting configuration verified.
-- Real contact details and scheduling configured at build time.
+- Confirmed public contacts included in the production build; remove stale empty hosting overrides. Configure a scheduling URL if using online booking.
 - WhatsApp conversation and booking tested on mobile and desktop.
 - If lead storage is enabled: validation, spam protection, access controls and privacy information verified.
 - Production build, type check, lint and browser smoke checks pass.

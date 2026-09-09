@@ -13,10 +13,12 @@ Routes: `/`, `/ai-coaching`, `/about`, `/resources`, `/contact`, `/book` and `/a
 - Responsive shared navigation/footer, audience workflow tabs, package comparison and FAQ.
 - Local business imagery and a social sharing image.
 - Three downloadable resources and a free AI business check with a downloadable task plan.
-- Enquiry preparation with validation and explicit WhatsApp/email handoff when configured.
+- Enquiry preparation with validation and a WhatsApp/email draft addressed to the business.
 - Canonical metadata, generated sitemap/robots and a not-found page.
 
-**Not yet live:** backend lead storage, confirmed scheduling, production deployment and follow-up automations. Without business contact configuration, the interface clearly offers a downloadable brief and does not claim to send or book anything.
+Public contact defaults are WhatsApp **+254 701 499 849** and **paul.maasai@yahoo.com**. Visitors review their enquiry, open a message draft and press send in their chosen app. Call times can be arranged through WhatsApp.
+
+**Not yet live:** backend lead storage, confirmed scheduling, production deployment and follow-up automations. The enquiry form does not automatically send messages or book calls.
 
 See [the repository review](docs/REPO_REVIEW.md), [content review](docs/CONTENT_REVIEW.md) and [remaining tasks](docs/IMPLEMENTATION_PLAN.md).
 
@@ -38,16 +40,18 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Configure the public business channels in `.env.local`:
+The confirmed public contacts are included in `src/lib/constants.ts`. To override them, configure `.env.local`:
 
 ```env
 NEXT_PUBLIC_SITE_URL=https://ecommercesolutions.co.ke
-NEXT_PUBLIC_WHATSAPP_NUMBER=
-NEXT_PUBLIC_CONTACT_EMAIL=
+NEXT_PUBLIC_WHATSAPP_NUMBER=254701499849
+NEXT_PUBLIC_CONTACT_EMAIL=paul.maasai@yahoo.com
 NEXT_PUBLIC_CALENDLY_URL=
 ```
 
-Use an international WhatsApp number including its country code and no local leading zero. Scheduling requires a full HTTPS URL. Invalid or missing channels remain unavailable in the UI. These are build-time values; rebuild after changing them.
+Use an international WhatsApp number including its country code and no local leading zero. Scheduling requires a full HTTPS URL. Omitted WhatsApp/email variables use the public defaults; an explicitly empty or invalid override disables that channel. Scheduling stays unavailable until a valid URL is set. These are build-time values; rebuild after changing them, including in hosting settings.
+
+The phone number and email are public website content. Keep `.env` and `.env.local` ignored; never commit API keys. `.env.example` contains only public settings and an empty credential placeholder.
 
 ```bash
 npm run lint

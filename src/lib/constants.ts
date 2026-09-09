@@ -8,11 +8,13 @@ function publicHttpsUrl(value: string | undefined) {
   }
 }
 
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-  /[\s()+-]/g,
-  "",
-);
-const contactEmail = (process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "").trim();
+// Public business contacts; explicit environment overrides can replace or disable them.
+const whatsappNumber = (
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "254701499849"
+).replace(/[\s()+-]/g, "");
+const contactEmail = (
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "paul.maasai@yahoo.com"
+).trim();
 
 export const siteConfig = {
   name: "E Commerce Solutions Kenya",

@@ -42,7 +42,7 @@ SEO editing follows Google’s guidance on [helpful content](https://developers.
 
 ## Remaining conversion dependencies
 
-The most immediate launch dependency is working public contact information. Configure and test WhatsApp/email and, if wanted, scheduling; rebuild after changing these public environment values. Copy cannot complete an enquiry journey while those channels are unavailable.
+The owner has now supplied WhatsApp **+254 701 499 849** and **paul.maasai@yahoo.com**. These are the public defaults for direct contact and enquiry drafts. Visitors must still press send in their chosen app. Verify actual message receipt after deployment and configure scheduling if wanted; rebuild after changing public environment overrides.
 
 Owner-confirmed service focus, language preferences, biography, real business photography and approved customer results would support the next content pass. Measure package discussions, completed enquiries and confirmed bookings once those paths are live; use those results to evaluate future copy changes.
 
@@ -54,5 +54,6 @@ Owner-confirmed service focus, language preferences, biography, real business ph
 - Downloaded resources match their edited source files. Each downloaded task plan contains four steps and the assessment limitation; the enquiry includes the selected package and omits an unused email field.
 - Mobile and desktop screenshots were reviewed. The final pass shortened the business placeholder and added the brand to the homepage search title.
 - `.env` and local browser artifacts remain ignored. No keys or new dependencies were added.
+- Contact activation follow-up: production build, TypeScript, lint and 46 browser checks passed at 360px and 1440px. Direct links and enquiry drafts use the owner-provided recipients, preserve message text and the selected package, and fit the viewport. Public defaults and environment overrides were checked. No messages were sent; `.env` and its 21st credential were excluded from staged files.
 
 These checks cover the local static export. They do not establish production delivery, search rankings or conversion performance.
