@@ -1,76 +1,50 @@
-# Site Architecture
+# Site architecture
 
-## MVP Pages
+## Implemented routes
 
-- `/` — conversion-focused homepage
-- `/ai-coaching` — coaching overview and packages
-- `/businesses` — AI outcomes for business owners
-- `/creators` — AI outcomes for creators and coaches
-- `/resources` — practical Kenya-focused AI content
-- `/about` — company and consultant credibility
-- `/contact` — contact options
-- `/book` — consultation / booking route
+| Route          | Purpose                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------- |
+| `/`            | Homepage: practical promise, audience workflows, delivery process, packages, resources, FAQ |
+| `/ai-coaching` | Package scope, prices, session counts and support details                                   |
+| `/about`       | Coaching approach and delivery principles                                                   |
+| `/resources`   | Three downloadable text resources                                                           |
+| `/contact`     | Contact options and local enquiry preparation                                               |
+| `/book`        | Scheduling/WhatsApp handoff and package-aware conversation brief                            |
+| `/audit`       | Self-guided workflow suggestion and downloadable plan                                       |
 
-## Homepage Sections
+A shared layout owns the navigation, footer and main landmark. Next.js supplies the not-found route. Audience-specific `/businesses` and `/creators` pages are deferred; the homepage currently covers those audiences through accessible tabs.
 
-1. Hero: outcome-led promise
-2. Trust signals: Kenya, practical implementation, automation, WhatsApp support
-3. Business outcomes
-4. Audience selector: businesses / creators / established teams
-5. Live implementation differentiator
-6. Package comparison
-7. How it works
-8. Tools and integrations
-9. Free AI Business Opportunity Audit
-10. Testimonials / case studies when available
-11. FAQ
-12. Final CTA
+## Conversion hierarchy
 
-## Conversion Hierarchy
+Primary: book an AI Mastery Call. Secondary: WhatsApp when configured. Alternative starting point: free self-guided audit.
 
-Primary CTA: **Chat on WhatsApp**
+Package links pass a validated package slug in the booking URL. Enquiry details are held in memory and reviewed before the visitor chooses a download or external WhatsApp/email handoff. A prepared brief is not a sent lead or confirmed booking.
 
-Secondary CTA: **Book an AI Mastery Call**
-
-Tertiary CTA: **Get the Free AI Business Opportunity Audit**
-
-## Design System Direction
-
-- Mobile-first
-- Premium consultancy feel
-- Neutral/light surfaces
-- Strong dark typography
-- Electric blue primary accent
-- Orange reserved for high-intent actions
-- Subtle borders and depth rather than heavy glassmorphism
-- Human/business photography and real workflow screenshots
-- Avoid generic AI robots and neon-futuristic stock imagery
-
-## Technical Architecture
+## Current architecture
 
 ```text
-Astro site
-   ↓
-Cloudflare Pages
-   ↓
-Supabase
-   ├── leads
-   ├── audit submissions
-   ├── consultation requests
-   └── future client records
-   ↓
-n8n
-   ├── notifications
-   ├── lead qualification
-   ├── email follow-up
-   ├── WhatsApp workflows
-   └── booking/payment events
+Next.js App Router + TypeScript
+  ├── Server-rendered marketing pages at build time
+  ├── Client navigation, tabs and local forms
+  ├── Shared shadcn primitives + existing adapted 21st.dev hero
+  └── Static export: out/
+        └── Static hosting (Cloudflare target; deployment not configured here)
 ```
 
-## Security
+`npm start` serves the built export locally. Public contact values and metadata URL are evaluated at build time. Images and downloads are local files.
 
-- Public Supabase client may only use the anon key.
-- Service-role credentials remain server-side and are never committed.
-- Lead tables require appropriate RLS policies.
-- Form endpoints must validate and rate-limit input.
-- Spam protection should be added before production launch.
+## Future lead pipeline
+
+```text
+Browser form
+  → validated/rate-limited server endpoint
+  → Supabase leads + consent/retention controls
+  → n8n notification and follow-up
+  → verified booking/payment events
+```
+
+The current static export has no request-time backend. A separate endpoint or a server-capable deployment must be selected before adding persistence. Service-role keys, automation credentials and registry keys must never be public client environment variables.
+
+## Visual direction
+
+See [DESIGN.md](../DESIGN.md). The current implementation uses warm neutral surfaces, dark typography, one coral action accent, the original multicolour brand mark, illustrative business photography and reduced-motion-safe transitions.

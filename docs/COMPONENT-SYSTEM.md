@@ -95,13 +95,11 @@ Before merging a 21st.dev component:
 
 ### Attached hero component
 
-The supplied `underline-hero-section.tsx` is adapted into `src/components/ui/underline-hero-section.tsx`. The original SaaS copy, external font request and demo-only callbacks were removed/replaced. The component keeps the underline treatment, responsive navigation, reduced-motion behavior and local animation, while accepting serializable URL props for Next.js Server Component compatibility.
+The supplied `underline-hero-section.tsx` is adapted into `src/components/ui/underline-hero-section.tsx`, with a source link to its 21st.dev listing. It keeps the underline treatment and reduced-motion-safe animation and uses local business photography. It now renders as a Server Component. Navigation and the shared button primitive live outside the hero. The registry currently requires a valid key for additional imports; locally authored tabs, FAQ and forms are not registry downloads.
 
 ## Visual language
 
-Primary brand accent: `#1D4ED8`.
-
-Secondary high-intent accent: `#F97316`.
+Current action accent: `#A4422B` (coral), with warm neutral surfaces and `#202C2B` ink. Preserve the existing multicolour brand mark. See [DESIGN.md](../DESIGN.md) for the implemented system and asset sources.
 
 Default visual direction:
 

@@ -1,16 +1,89 @@
-"use client";
-import React,{useEffect,useRef,useState}from"react";
-import Link from "next/link";
+// Adapted from the existing 21st.dev Underline Hero Section by waleedkibhen / wisedev.
+// https://21st.dev/@waleedkibhen/components/underline-hero-section
+// Navigation now lives in the shared layout; this hero renders without client JavaScript.
 import Image from "next/image";
-import{cva,type VariantProps}from"class-variance-authority";
-import{cn}from"@/lib/utils";
-import{siteConfig}from"@/lib/constants";
-const LocalStyles=()=> <style>{`@keyframes fade-in-up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.hero-underline{position:absolute;left:0;width:100%;top:100%;margin-top:-5px;pointer-events:none}.animate-fade-in-up{animation:fade-in-up .6s ease-out both}.animate-fade-in-up-delay-1{animation-delay:.2s}.animate-fade-in-up-delay-2{animation-delay:.4s}@keyframes btn-bounce{0%{transform:scale(1)}50%{transform:scale(.95)}100%{transform:scale(1)}}.btn-bounce-anim{animation:btn-bounce .3s cubic-bezier(.36,0,.66,-0.56)}.focus-outline:focus-visible{outline:2px solid var(--brand-violet);outline-offset:3px}@media(prefers-reduced-motion:reduce){.animate-fade-in-up,.animate-fade-in-up-delay-1,.animate-fade-in-up-delay-2,.btn-bounce-anim{animation:none!important}}`}</style>;
-const buttonVariants=cva("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",{variants:{variant:{default:"bg-foreground text-background",outline:"border-2 border-foreground bg-background text-foreground",ghost:"bg-transparent text-foreground"},size:{default:"h-10 px-4 py-2",sm:"h-9 rounded-md px-3",lg:"h-11 rounded-md px-8"}},defaultVariants:{variant:"default",size:"default"}});
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>,VariantProps<typeof buttonVariants>{}
-const Button=React.forwardRef<HTMLButtonElement,ButtonProps>(({className,variant,size,onClick,...props},ref)=>{const localRef=useRef<HTMLButtonElement|null>(null);const mergedRef=(node:HTMLButtonElement|null)=>{localRef.current=node;if(typeof ref==="function")ref(node);else if(ref)ref.current=node};const handleClick=(event:React.MouseEvent<HTMLButtonElement>)=>{const button=localRef.current;if(button&&!button.disabled){button.classList.add("btn-bounce-anim");window.setTimeout(()=>button.classList.remove("btn-bounce-anim"),300)}onClick?.(event)};return <button ref={mergedRef} onClick={handleClick} className={cn(buttonVariants({variant,size}),className)} {...props}/>});
-Button.displayName="UnderlineHeroButton";
-export interface UnderlineHeroSectionProps{brand?:string;heroClassName?:string;whatsappHref?:string;bookCallHref?:string}
-function Navigation({brand,whatsappHref}:{brand:string;whatsappHref?:string}){const[menuOpen,setMenuOpen]=useState(false);const menuRef=useRef<HTMLDivElement|null>(null);const triggerRef=useRef<HTMLButtonElement|null>(null);useEffect(()=>{if(!menuOpen)return;const previous=document.body.style.overflow;document.body.style.overflow="hidden";return()=>{document.body.style.overflow=previous}},[menuOpen]);useEffect(()=>{const handler=(event:MouseEvent)=>{if(!menuOpen)return;const target=event.target as Node;if(menuRef.current&&!menuRef.current.contains(target)&&triggerRef.current&&!triggerRef.current.contains(target))setMenuOpen(false)};document.addEventListener("mousedown",handler);return()=>document.removeEventListener("mousedown",handler)},[menuOpen]);useEffect(()=>{if(!menuOpen)triggerRef.current?.focus()},[menuOpen]);const items=[{id:"features",label:"How it works"},{id:"pricing",label:"Packages"},{id:"about",label:"About"}];return <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl" aria-label="Main navigation"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="flex h-16 items-center justify-between"><Link href="/" className="focus-outline flex items-center" aria-label={brand}><Image src={siteConfig.logo} alt={brand} width={180} height={44} className="h-11 w-auto object-contain" priority /></Link><div className="hidden items-center space-x-8 md:flex">{items.map(item=><a key={item.id} href={`#${item.id}`} className="focus-outline text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{item.label}</a>)}{whatsappHref&&<a href={whatsappHref} className="brand-gradient inline-flex h-9 items-center rounded-md px-3 text-sm font-semibold text-white shadow-sm focus-outline">WhatsApp</a>}</div><div className="relative md:hidden"><Button size="sm" variant="ghost" className="focus-outline" onClick={()=>setMenuOpen(open=>!open)} aria-expanded={menuOpen} aria-controls="mobile-menu" aria-haspopup="menu" ref={triggerRef}>{menuOpen?"Close":"Menu"}</Button>{menuOpen&&<div id="mobile-menu" ref={menuRef} className="absolute right-0 mt-2 w-56 rounded-xl border border-border bg-background/95 p-3 shadow-xl backdrop-blur-md" role="menu"><div className="flex flex-col space-y-2">{items.map(item=><a key={item.id} href={`#${item.id}`} className="focus-outline block rounded px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground" onClick={()=>setMenuOpen(false)} role="menuitem">{item.label}</a>)}{whatsappHref&&<a href={whatsappHref} className="brand-gradient block rounded-md px-3 py-2 text-center text-sm font-semibold text-white focus-outline" onClick={()=>setMenuOpen(false)}>WhatsApp</a>}</div></div>}</div></div></div></nav>}
-function Hero({heroClassName,bookCallHref}:{heroClassName?:string;bookCallHref?:string}){return <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden px-4 pb-24 pt-32 md:pb-32 md:pt-40" aria-labelledby="hero-heading"><div className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[520px] bg-[radial-gradient(circle_at_50%_10%,rgba(45,207,189,.14),transparent_32%),radial-gradient(circle_at_65%_22%,rgba(155,96,228,.13),transparent_30%),radial-gradient(circle_at_35%_28%,rgba(236,52,99,.10),transparent_28%)]"/><div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center"><div className="mb-6 animate-fade-in-up rounded-full border border-[#9b60e4]/20 bg-secondary px-4 py-2 text-sm font-medium brand-gradient-text">Practical AI coaching for Kenyan businesses</div><h1 id="hero-heading" className="mb-6 animate-fade-in-up text-4xl font-bold leading-tight tracking-tighter sm:text-5xl md:text-6xl">Turn AI Into a Business<br/><span className="relative inline-block"><span className={cn(heroClassName,"font-normal brand-gradient-text sm:text-6xl md:text-7xl")}>Advantage</span><svg className="hero-underline" viewBox="0 0 170 30" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="hero-underline-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#2DCFBD"/><stop offset=".35" stopColor="#9B60E4"/><stop offset=".65" stopColor="#EC3463"/><stop offset="1" stopColor="#F39B2B"/></linearGradient></defs><path d="M2 9C32.8203 5.34032 108.769 -0.881146 166 3.51047" stroke="url(#hero-underline-gradient)" strokeWidth="6" strokeLinecap="round" fill="none" opacity=".9"/></svg></span>.</h1><div className="mx-auto mb-9 max-w-2xl animate-fade-in-up animate-fade-in-up-delay-1"><p className="text-base leading-relaxed text-muted-foreground sm:text-lg">Learn practical AI systems that help you create content faster, respond to customers better, generate leads and automate repetitive work.</p></div><div className="animate-fade-in-up animate-fade-in-up-delay-2">{bookCallHref&&<a href={bookCallHref} className="brand-gradient inline-flex h-11 items-center justify-center rounded-lg px-8 py-6 text-base font-semibold text-white shadow-[0_10px_30px_rgba(236,52,99,0.15)] transition-transform hover:-translate-y-0.5 focus-outline">Book your AI Mastery Call</a>}</div></div></section>}
-export default function UnderlineHeroSection({brand=siteConfig.name,heroClassName,whatsappHref,bookCallHref}:UnderlineHeroSectionProps){return <div className="min-h-screen bg-background text-foreground"><LocalStyles/><Navigation brand={brand} whatsappHref={whatsappHref}/><Hero heroClassName={heroClassName} bookCallHref={bookCallHref}/></div>}
+import Link from "next/link";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export default function UnderlineHeroSection() {
+  return (
+    <section
+      className="relative isolate flex min-h-[min(720px,calc(100svh-5rem))] items-center overflow-hidden bg-[#202c2b] text-white"
+      aria-labelledby="hero-heading"
+    >
+      <Image
+        src="/images/business-workshop.jpg"
+        alt=""
+        fill
+        preload
+        sizes="100vw"
+        className="-z-20 object-cover object-[68%_center]"
+      />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(22,35,33,.98)_0%,rgba(22,35,33,.92)_29%,rgba(22,35,33,.60)_53%,rgba(22,35,33,.10)_100%)] max-sm:bg-[linear-gradient(90deg,rgba(22,35,33,.93),rgba(22,35,33,.76))]" />
+      <div className="site-container py-12 lg:py-14">
+        <p className="hero-enter mb-7 flex items-center gap-3 text-[10px] font-semibold tracking-[0.18em] text-white/80 sm:text-xs">
+          <span className="h-px w-8 bg-[#edab8d]" /> AI COACHING. BUILT FOR
+          KENYA.
+        </p>
+        <h1
+          id="hero-heading"
+          className="hero-enter max-w-2xl text-[clamp(2.6rem,5.1vw,4.65rem)] leading-[1.06] font-medium tracking-[-0.055em]"
+        >
+          Your business.
+          <br />
+          Your ambition.
+          <br />
+          <span className="relative inline-block pb-3 font-editorial font-normal italic text-[#efb597]">
+            An AI advantage.
+            <svg
+              className="hero-underline absolute inset-x-0 bottom-0 h-3 w-full"
+              viewBox="0 0 440 16"
+              fill="none"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 11C120 1 275 1 437 8"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+        </h1>
+        <p className="hero-enter hero-enter-delay mt-7 max-w-[27rem] text-base leading-7 text-white/80 sm:text-lg">
+          Spend less time on the repetitive work.
+          <br className="hidden sm:block" /> Learn practical AI systems for your
+          content, customers and everyday business.
+        </p>
+        <div className="hero-enter hero-enter-last mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-7">
+          <Button
+            asChild
+            size="lg"
+            className="h-13 rounded-full bg-[#edab8d] px-6 text-[#202c2b] hover:bg-[#f4bea4]"
+          >
+            <Link href="/book">
+              Book your AI Mastery Call{" "}
+              <ArrowUpRight className="size-4" aria-hidden="true" />
+            </Link>
+          </Button>
+          <Link
+            href="/ai-coaching"
+            className="inline-flex min-h-11 items-center gap-3 text-sm font-medium text-white underline-offset-4 hover:underline"
+          >
+            Explore coaching{" "}
+            <ArrowUpRight className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
+        <a
+          href="#outcomes"
+          className="hero-enter hero-enter-last mt-8 inline-flex min-h-11 items-center gap-3 text-[10px] tracking-[0.12em] text-white/65"
+        >
+          <ArrowDown className="size-4" aria-hidden="true" /> A LITTLE LESS
+          BUSY. A LOT MORE POSSIBLE.
+        </a>
+      </div>
+    </section>
+  );
+}

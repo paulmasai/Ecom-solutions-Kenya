@@ -1,0 +1,39 @@
+E COMMERCE SOLUTIONS KENYA
+Find your first useful automation
+
+CHOOSE ONE TASK
+Task: ____________________
+How often do you do it? ____________________
+Who owns it today? ____________________
+What starts it? ____________________
+What should happen at the end? ____________________
+
+IS THIS A GOOD CANDIDATE?
+[ ] The task repeats regularly.
+[ ] Its inputs and expected output are clear.
+[ ] The current steps can be written down.
+[ ] You can spot and correct errors.
+[ ] Someone will own the process after it is automated.
+[ ] Any customer information can be handled appropriately.
+
+MAP THE SIMPLEST PROCESS
+Trigger -> input -> action -> review -> next step
+
+START MANUALLY
+Test the written process with a few examples before connecting tools.
+Keep human review for customer messages, sensitive decisions and uncertain outputs.
+An automation does not always need AI: sometimes a form, spreadsheet and notification are enough.
+
+PLAN FOR EXCEPTIONS
+What should happen if information is missing?
+Who is notified if a step fails?
+How can someone pause the process?
+Where will records be stored, and who can access them?
+
+MEASURE THE RESULT
+Compare time spent before and after.
+Check accuracy, missed items and customer experience.
+Include tool subscription and message costs in your comparison.
+Do not claim savings until you have measured them.
+
+https://ecommercesolutions.co.ke

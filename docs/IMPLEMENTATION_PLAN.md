@@ -1,62 +1,70 @@
-# Implementation Plan
+# Implementation plan
+
+Reviewed against the repository on 9 September 2026. This is a Next.js App Router static export; the previous Astro checklist was obsolete.
 
 ## Phase 1 — Foundation
 
-- [ ] Initialize Astro project
-- [ ] Configure TypeScript
-- [ ] Establish global layout and metadata
-- [ ] Build responsive navigation/footer
-- [ ] Establish design tokens
-- [ ] Build homepage sections
-- [ ] Add WhatsApp CTA
-- [ ] Add SEO/Open Graph metadata
+- [x] Next.js App Router, strict TypeScript and Tailwind v4
+- [x] shadcn component foundation
+- [x] Adapt the existing 21st.dev underline hero and record its source
+- [x] Shared responsive navigation, footer and skip link
+- [x] Cohesive design tokens, local imagery and reduced-motion support
+- [x] Homepage with audience workflows, process, packages, resources and FAQs
+- [x] Page metadata, canonical URLs, social image, robots and sitemap
+- [x] Dedicated not-found page
+- [x] Static-export preview command compatible with `output: "export"`
+- [ ] Configure and verify production WhatsApp/email/scheduling details
+- [ ] Restore a valid development-only 21st.dev API key for new registry imports
 
 ## Phase 2 — Conversion
 
-- [ ] Build AI coaching page
-- [ ] Build package cards and detail sections
-- [ ] Add booking route
-- [ ] Add contact form
-- [ ] Add Free AI Business Opportunity Audit
-- [ ] Connect lead storage
-- [ ] Add conversion events
+- [x] AI coaching overview with package comparison and delivery details
+- [x] Booking route with configured scheduling/WhatsApp options
+- [x] Carry the selected package into a conversation brief
+- [x] Accessible enquiry form with validation, review and download
+- [x] Explicit WhatsApp/email handoff when those channels are configured
+- [x] Free self-guided AI opportunity audit with downloadable plan
+- [ ] Persist contact and audit submissions through a validated server endpoint
+- [ ] Add spam protection, rate limits and suitable lead-data retention/consent
+- [ ] Add conversion events with a documented privacy approach
+- [ ] Verify a real enquiry and confirmed booking end to end
+
+The enquiry form currently prepares a brief in the browser; it does not submit to a backend or confirm a booking. The audit gives a deterministic suggestion based on the selected task, not an AI-generated assessment. Neither flow stores personal information.
 
 ## Phase 3 — Automation
 
-- [ ] Create Supabase lead schema
-- [ ] Add n8n lead notification workflow
-- [ ] Add automated email follow-up
-- [ ] Add WhatsApp workflow integration
-- [ ] Connect booking events
-- [ ] Connect payment events
+- [ ] Create Supabase lead schema and least-privilege RLS
+- [ ] Choose a separate server API or move from static export to a server-capable deployment
+- [ ] Add n8n lead notifications and monitored retry behavior
+- [ ] Add consent-based email/WhatsApp follow-up
+- [ ] Connect verified booking events
+- [ ] Connect payment events and reconciliation
 
 ## Phase 4 — Authority
 
-- [ ] Resources hub
-- [ ] SEO article templates
-- [ ] Case studies
-- [ ] Testimonials
-- [ ] Downloadable lead magnets
+- [x] Resources hub
+- [x] Downloadable customer-reply prompt, content workbook and automation checklist
+- [x] About page describing the actual coaching approach
+- [ ] Add verified consultant biography, credentials and original business photography
+- [ ] Publish substantive SEO articles with author and review dates
+- [ ] Add approved case studies with measured results
+- [ ] Add real testimonials with permission
 
-## Phase 5 — Client Experience
+## Phase 5 — Client experience
 
-- [ ] Authentication
-- [ ] Client dashboard
-- [ ] Session recordings
-- [ ] Prompt library
-- [ ] SOP library
-- [ ] Support/status area
+- [ ] Authentication and authorised client dashboard
+- [ ] Session recordings and resources
+- [ ] Client prompt/SOP libraries
+- [ ] Support and session-status area
 
-## Definition of Done for MVP
+## Launch gates
 
-The MVP is ready when:
+- Production domain and hosting configuration verified.
+- Real contact details and scheduling configured at build time.
+- WhatsApp conversation and booking tested on mobile and desktop.
+- If lead storage is enabled: validation, spam protection, access controls and privacy information verified.
+- Production build, type check, lint and browser smoke checks pass.
+- Responsive and keyboard flows verified; no broken internal links or missing resources.
+- No secrets committed.
 
-- The production domain resolves to the site.
-- Homepage clearly explains the offer within the first viewport.
-- WhatsApp CTA works on mobile and desktop.
-- Booking path works.
-- Lead form validates and stores safely.
-- Site is responsive and accessible.
-- SEO metadata is complete.
-- Production build passes.
-- No secrets are committed.
+See [REPO_REVIEW.md](REPO_REVIEW.md) for findings, priorities and validation evidence.

@@ -1,301 +1,88 @@
 # Ecommerce Solutions Kenya
 
-**AI Systems & Digital Growth for Kenyan Businesses**
+Practical AI coaching, automation and digital growth for Kenyan business owners, creators and teams.
 
 Production domain: https://ecommercesolutions.co.ke
 
-A Kenya-focused business website and lead-generation platform for practical AI coaching, automation and digital growth.
+## Current status
 
-## Positioning
+The public frontend is implemented with Next.js App Router, strict TypeScript, Tailwind CSS v4, shadcn primitives and an adapted 21st.dev underline hero.
 
-> **Turn AI Into a Business Advantage.**
+Routes: `/`, `/ai-coaching`, `/about`, `/resources`, `/contact`, `/book` and `/audit`.
 
-Practical AI coaching and automation for Kenyan business owners, creators and teams — focused on saving time, creating content faster, generating leads, improving customer communication and automating repetitive work.
+- Responsive shared navigation/footer, audience workflow tabs, package comparison and FAQ.
+- Local business imagery and a social sharing image.
+- Three downloadable resources and a self-guided audit with a downloadable action plan.
+- Enquiry preparation with validation and explicit WhatsApp/email handoff when configured.
+- Canonical metadata, generated sitemap/robots and a not-found page.
 
-This site sells business outcomes, not AI theory.
+**Not yet live:** backend lead storage, confirmed scheduling, production deployment and follow-up automations. Without business contact configuration, the interface clearly offers a downloadable brief and does not claim to send or book anything.
+
+See [the repository review](docs/REPO_REVIEW.md) and [remaining tasks](docs/IMPLEMENTATION_PLAN.md).
 
 ## Offers
 
-| Package | Ideal client | Delivery | Starting price |
-|---|---|---|---:|
-| **AI Starter** | Shops, salons, restaurants & small businesses | 2 × 60-min sessions | KES 8,000 |
-| **AI Growth** | Creators, influencers, coaches & consultants | 4 × 60-min sessions + 2 weeks WhatsApp support | KES 25,000 |
-| **AI Pro VIP** | Established businesses & agencies | 6 × 60-min sessions + 30 days support | KES 60,000 |
+| Package    | Audience                                        | Delivery                                          | Starting price |
+| ---------- | ----------------------------------------------- | ------------------------------------------------- | -------------: |
+| AI Starter | Shops, salons, restaurants and small businesses | 2 × 60-minute sessions                            |      KES 8,000 |
+| AI Growth  | Creators, coaches and consultants               | 4 × 60-minute sessions + 2 weeks WhatsApp support |     KES 25,000 |
+| AI Pro VIP | Established businesses, agencies and teams      | 6 × 60-minute sessions + 30 days support          |     KES 60,000 |
 
-International / diaspora pricing can be offered in USD at approximately $100, $250 and $600 respectively, subject to scope.
+At least one useful workflow is built live during each engagement. Final scope, price and separate tool costs are agreed before commitment. The full offer remains in [OFFER.md](docs/OFFER.md).
 
-## Differentiator
+## Local development
 
-Every engagement is implementation-focused. At least one useful workflow is built live with the client during coaching.
-
-Examples:
-
-- Customer enquiry → AI → response
-- Product → AI → description + social caption
-- Video → AI → script + captions + posts
-- Lead → form → AI → follow-up
-- Content idea → AI → content calendar
-
-## Frontend Stack
-
-The website is now standardized on:
-
-- **Next.js App Router**
-- **TypeScript** with strict mode
-- **Tailwind CSS v4**
-- **shadcn/ui** as the base component system
-- **21st.dev** for selected higher-level UI components and visual patterns
-- **Lucide React** for icons
-- **Supabase** for future lead/client data
-- **n8n** for automation
-- **Cloudflare** for production delivery
-
-### Component strategy
-
-shadcn provides the stable primitives. 21st.dev is used selectively for polished patterns, heroes, marketing sections and interaction-heavy components. Installed components become source code in this repository and must be reviewed and normalized to the project's tokens and accessibility standards.
-
-See [`docs/COMPONENT-SYSTEM.md`](docs/COMPONENT-SYSTEM.md) for the full component rules and installation workflow.
-
-## Project Structure
-
-```text
-.
-├── components.json
-├── next.config.ts
-├── package.json
-├── postcss.config.mjs
-├── tsconfig.json
-├── docs/
-│   ├── OFFER.md
-│   ├── SITE-ARCHITECTURE.md
-│   ├── IMPLEMENTATION_PLAN.md
-│   └── COMPONENT-SYSTEM.md
-└── src/
-    ├── app/
-    │   ├── globals.css
-    │   ├── layout.tsx
-    │   └── page.tsx
-    ├── components/
-    │   └── ui/
-    │       ├── button.tsx
-    │       └── card.tsx
-    ├── hooks/
-    └── lib/
-        └── utils.ts
+```bash
+npm ci
+cp .env.example .env.local
+npm run dev
 ```
 
-As the site grows, use `components/site`, `components/marketing`, `components/coaching` and `components/forms` for domain components. Keep `components/ui` reserved for reusable shadcn-style primitives.
+Configure the public business channels in `.env.local`:
 
-## 21st.dev workflow
+```env
+NEXT_PUBLIC_SITE_URL=https://ecommercesolutions.co.ke
+NEXT_PUBLIC_WHATSAPP_NUMBER=
+NEXT_PUBLIC_CONTACT_EMAIL=
+NEXT_PUBLIC_CALENDLY_URL=
+```
 
-21st.dev components are installed through the shadcn registry mechanism. A typical component URL follows this pattern:
+Use an international WhatsApp number including its country code and no local leading zero. Scheduling requires a full HTTPS URL. Invalid or missing channels remain unavailable in the UI. These are build-time values; rebuild after changing them.
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm start
+```
+
+The site uses `output: "export"`. The production artifact is `out/`; `npm start` serves it locally on port 3000 using `serve`. Stop the development server before using the same port. Deploy the static output to an appropriate host; no deployment is performed by these commands.
+
+Read the relevant installed Next.js documentation in `node_modules/next/dist/docs/` before changing framework code, as directed by [AGENTS.md](AGENTS.md).
+
+## Component ownership
+
+- `src/components/ui`: shared shadcn primitives and adapted registry components.
+- `src/components/site`: shared header, footer, brand and page introductions.
+- `src/components/marketing`: homepage sections, tabs, FAQ and resource lists.
+- `src/components/coaching`: package comparison.
+- `src/components/forms`: local enquiry and audit interactions.
+- `src/lib`: offer content, public configuration, metadata and downloads.
+
+The 21st.dev hero already supplied in the repository is attributed in its source. Additional registry imports need a valid development key:
 
 ```bash
 npx shadcn@latest add "https://21st.dev/r/<username>/<slug>?api_key=$API_KEY_21ST"
 ```
 
-Keep the API key in the local environment; never commit it. Review every file written by the command before merging. Avoid registry collisions by checking whether the component name already exists in `src/components/ui`.
+Use a real component URL, review the files before accepting changes, and keep the credential out of commits and public environment variables. A Next.js `.env.local` does not automatically export a variable into the parent Codex process.
 
-## Target Pages
+See [COMPONENT-SYSTEM.md](docs/COMPONENT-SYSTEM.md), [DESIGN.md](DESIGN.md) and [SITE-ARCHITECTURE.md](docs/SITE-ARCHITECTURE.md).
 
-MVP:
+## Data and future integrations
 
-```text
-/
-├── Home
-├── AI Coaching
-├── About
-├── Resources
-├── Contact
-└── Book a Call
-```
+The current enquiry form stores nothing: the visitor prepares a brief, reviews it and chooses whether to download it or open an external message draft. The audit uses a task-based suggestion, without an external AI API or personal-data capture.
 
-Future expansion:
+Supabase persistence, n8n follow-up and payments are future work. They require a server endpoint, input validation, access controls, spam protection and appropriate privacy information. Never expose service-role keys, automation secrets, payment secrets or registry API keys.
 
-```text
-/
-├── Home
-├── AI Coaching
-│   ├── AI Starter
-│   ├── AI Growth
-│   └── AI Pro VIP
-├── For Businesses
-├── For Creators
-├── How It Works
-├── Resources
-├── About
-├── Contact
-└── Book
-```
-
-## Conversion Flow
-
-```text
-Visitor
-  ↓
-Business problem / desired outcome
-  ↓
-Relevant AI outcome
-  ↓
-Audience or package
-  ↓
-WhatsApp / Book
-  ↓
-Qualification
-  ↓
-Payment
-  ↓
-Coaching
-  ↓
-Implementation
-  ↓
-Support
-  ↓
-Testimonial / Referral
-```
-
-Primary CTA: **Book your AI Mastery Call**.
-
-Secondary CTA: **WhatsApp**.
-
-## Delivery
-
-- Booking: WhatsApp-first, with online scheduling as a secondary route.
-- Calls: Google Meet or Zoom.
-- Recordings: session replays supplied to clients.
-- Materials: Google Drive with recordings, prompts, templates and SOPs.
-- Support: WhatsApp according to package.
-- Kenya payments: M-Pesa, Airtel Money and card/payment links as configured.
-- International payments: card, PayPal or configured payment provider.
-
-## Lead Magnet
-
-**Free AI Business Opportunity Audit**
-
-Suggested fields:
-
-- Business type
-- Main time-consuming task
-- Primary business goal
-- Name
-- WhatsApp
-- Email
-
-Future submissions should feed into Supabase and an n8n follow-up workflow.
-
-## Design Direction
-
-Premium Kenyan business consultancy + modern AI.
-
-- Primary accent: `#1D4ED8`
-- High-intent CTA accent: `#F97316`
-- Clean white/neutral surfaces
-- Strong typography
-- Restrained borders and shadows
-- Real business imagery and practical workflow screenshots
-- Mobile-first responsive design
-- Purposeful, restrained animation
-
-Avoid robot-heavy imagery, glowing brains, excessive neon, generic AI stock photography and technology-first messaging.
-
-## Development Principles
-
-- Mobile-first
-- Performance-first
-- Semantic, accessible HTML
-- Server-rendered by default
-- Minimal client-side JavaScript
-- Strict TypeScript
-- Reusable shadcn primitives
-- Reusable domain components
-- Validate forms before persistence
-- Keep Supabase and automation secrets server-side
-- Never expose service-role keys or private credentials
-- Protect lead data with Supabase RLS
-- Build the conversion MVP before adding a client portal
-
-## Environment Variables
-
-Expected future variables may include:
-
-```env
-NEXT_PUBLIC_SITE_URL=https://ecommercesolutions.co.ke
-NEXT_PUBLIC_WHATSAPP_NUMBER=
-NEXT_PUBLIC_CALENDLY_URL=
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-API_KEY_21ST=
-```
-
-Only variables actually required by the implementation should be added. Secrets must never be committed.
-
-## Local Development
-
-```bash
-npm install
-npm run dev
-npm run build
-npm run start
-```
-
-## Roadmap
-
-### Phase 1 — Foundation
-
-- Next.js App Router setup
-- shadcn configuration
-- Tailwind design tokens
-- 21st.dev component workflow
-- Global layout/navigation
-- Responsive homepage
-- WhatsApp CTA
-- SEO metadata
-
-### Phase 2 — Conversion
-
-- Coaching package pages
-- Booking flow
-- Contact form
-- Free AI Opportunity Audit
-- Lead storage
-- Conversion tracking
-
-### Phase 3 — Automation
-
-- Supabase lead pipeline
-- n8n notifications
-- Automated lead follow-up
-- WhatsApp workflow integration
-- Booking/payment status automation
-
-### Phase 4 — Authority
-
-- Resources hub
-- SEO content
-- Case studies
-- Testimonials
-- Lead magnets
-
-### Phase 5 — Client Experience
-
-- Secure client portal
-- Session resources
-- Recordings
-- Prompt libraries
-- SOPs
-- Support/status area
-
-## Repository Scope
-
-This repository is dedicated to **Ecommerce Solutions Kenya / ecommercesolutions.co.ke** and its AI coaching, automation and digital-growth website.
-
-It is separate from the existing MobDeals project and must not inherit MobDeals-specific application logic, branding, database schemas or deployment configuration unless explicitly required.
-
-## Status
-
-**Project stage:** Frontend foundation initialized.
-
-**Primary market:** Kenya.
-
-**Primary conversion:** WhatsApp conversation / booked consultation.
+This repository is dedicated to Ecommerce Solutions Kenya. It is separate from MobDeals and other projects.

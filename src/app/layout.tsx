@@ -1,31 +1,37 @@
 import type { Metadata } from "next";
+import { Header } from "@/components/site/header";
+import { Footer } from "@/components/site/footer";
+import { siteConfig } from "@/lib/constants";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ecommercesolutions.co.ke"),
+  metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "AI Mastery Coaching for Kenyan Business Owners | E Commerce Solutions Kenya",
+    default: "Practical AI Coaching | E Commerce Solutions Kenya",
     template: "%s | E Commerce Solutions Kenya",
   },
-  description:
-    "Practical AI coaching, automation and digital growth systems for Kenyan business owners, creators and teams.",
-  icons: {
-    icon: "/images/logo-mark.svg",
-    shortcut: "/images/logo-mark.svg",
-  },
-  openGraph: {
-    title: "E Commerce Solutions Kenya",
-    description: "Practical AI coaching, automation and digital growth systems for Kenyan businesses.",
-    url: "https://ecommercesolutions.co.ke",
-    siteName: "E Commerce Solutions Kenya",
-    type: "website",
-  },
+  description: siteConfig.description,
+  icons: { icon: "/images/logo-mark.svg", shortcut: "/images/logo-mark.svg" },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en-KE">
+      <body>
+        <a
+          href="#main-content"
+          className="fixed top-3 left-4 z-[100] -translate-y-24 rounded-md bg-foreground px-5 py-3 text-sm text-white focus:translate-y-0"
+        >
+          Skip to content
+        </a>
+        <Header />
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }

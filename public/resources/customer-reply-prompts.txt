@@ -1,0 +1,33 @@
+E COMMERCE SOLUTIONS KENYA
+Customer reply prompt template
+
+1. Gather the facts
+- What is the customer asking?
+- What is the correct product/service information?
+- What is your delivery area, price and timeframe?
+- What should the customer do next?
+
+2. Copy and complete this prompt
+
+Help me draft a short, helpful reply to a customer.
+My business: [describe your business]
+My tone: [friendly, professional, warm, etc.]
+Customer question: [remove names, phone numbers and private details]
+Verified facts: [only facts you can confirm]
+Next step: [what the customer should do]
+
+Use only the facts I provide. If something is missing, tell me what I need to check.
+Do not invent prices, stock availability, delivery promises or policies.
+Keep the reply under 80 words and give me two versions.
+
+3. Review before sending
+[ ] Are every price, date and product detail correct?
+[ ] Does it answer the customer's actual question?
+[ ] Does it sound like our business?
+[ ] Is the next step clear?
+[ ] Have I kept private customer information out of the prompt?
+
+Keep useful approved replies in a shared document for your team.
+AI drafts are a starting point; a person should check them.
+
+https://ecommercesolutions.co.ke
