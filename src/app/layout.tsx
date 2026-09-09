@@ -11,7 +11,10 @@ export const metadata: Metadata = {
     template: "%s | E Commerce Solutions Kenya",
   },
   description: siteConfig.description,
-  icons: { icon: "/images/logo-mark.svg", shortcut: "/images/logo-mark.svg" },
+  icons: {
+    icon: { url: siteConfig.logoMark, type: "image/png" },
+    shortcut: { url: siteConfig.logoMark, type: "image/png" },
+  },
 };
 
 export default function RootLayout({

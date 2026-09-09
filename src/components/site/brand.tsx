@@ -20,9 +20,9 @@ export function Brand({
       <Image
         src={siteConfig.logoMark}
         alt=""
-        width={31}
-        height={43}
-        className="h-10 w-8"
+        width={48}
+        height={48}
+        className="size-12 object-contain"
       />
       <span className={cn("flex flex-col", light && "text-white")}>
         <span className="text-[17px] leading-5 font-bold tracking-tight">

@@ -13,7 +13,7 @@ Interaction thesis: stagger the hero copy and draw its existing 21st.dev underli
 - Shared 1280px content width with 24–48px gutters; 80–112px section rhythm.
 - Cardless content sections; bordered surfaces reserved for package choices and working forms.
 - Server-rendered pages; client boundaries only for navigation, outcome tabs and local forms.
-- Use the supplied brand mark with a readable horizontal wordmark; the original stacked logo is unsuitable at navigation height.
+- Use the supplied `public/images/ecommerce_solutions_kenya_icon_logo.png` for the header, footer and favicon, preserving its square proportions. Pair it with the readable horizontal wordmark at navigation height; retain `ecommerce_solutions_logo.png` as the supplied full-logo asset.
 - No fabricated client counts, testimonials, endorsements or results. Photography is illustrative stock, not a claim about our team or clients.
 
 ## Sources

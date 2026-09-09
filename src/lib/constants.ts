@@ -26,7 +26,7 @@ export const siteConfig = {
   contactEmail: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail)
     ? contactEmail
     : null,
-  logoMark: "/images/logo-mark.svg",
+  logoMark: "/images/ecommerce_solutions_kenya_icon_logo.png",
   description:
     "Practical AI coaching, automation and digital growth systems for Kenyan business owners, creators and teams.",
 };
