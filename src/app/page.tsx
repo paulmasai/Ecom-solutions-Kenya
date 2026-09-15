@@ -8,6 +8,7 @@ import { FAQ } from "@/components/marketing/faq";
 import { FinalCTA } from "@/components/marketing/final-cta";
 import { ResourceList } from "@/components/marketing/resource-list";
 import { pageMetadata } from "@/lib/metadata";
+import { Button } from "@/components/ui/button";
 
 export const metadata = pageMetadata(
   "AI Coaching in Kenya | E Commerce Solutions Kenya",
@@ -37,6 +38,17 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+      <section className="border-b" aria-labelledby="planner-invitation">
+        <div className="site-container flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+          <div className="max-w-2xl">
+            <h2 id="planner-invitation" className="text-2xl font-medium tracking-tight">Need help choosing your next step?</h2>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">Explore custom automation, a business AI assistant, connected operations or Meta support. Start with the tasks you want to improve.</p>
+          </div>
+          <Button asChild size="lg" className="min-h-12 shrink-0 self-start sm:self-center">
+            <Link href="/service-planner">Find the right service <ArrowUpRight className="size-4" aria-hidden="true" /></Link>
+          </Button>
+        </div>
+      </section>
       <Outcomes />
       <Process />
       <section id="packages" className="section-space">

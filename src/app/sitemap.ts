@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources",
     "/contact",
     "/book",
+    "/service-planner",
     "/audit",
   ].map((path) => ({
     url: new URL(path, siteConfig.siteUrl).toString(),

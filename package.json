@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "serve out --no-clipboard",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "latest",
@@ -29,7 +30,9 @@
     "@types/react-dom": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "jsdom": "26.1.0",
     "serve": "14.2.6",
+    "tsx": "4.20.5",
     "typescript": "latest"
   }
 }
