@@ -7,8 +7,8 @@ import { siteConfig, whatsappUrl } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
-  "Discuss AI Coaching",
-  "Prepare for an AI coaching conversation. Outline your business task, compare suitable packages and understand the scope and costs before you decide.",
+  "Discuss AI Coaching & Automation",
+  "Discuss AI coaching or your service plan. Outline your business needs and understand the scope, suitable tools and costs before you decide.",
   "/book",
 );
 
@@ -16,9 +16,9 @@ export default function BookPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Discuss AI coaching for your business"
+        eyebrow="Discuss AI support for your business"
         title="Let’s work out where AI could help you."
-        description="Start with one task: customer replies, content or follow-ups. We’ll discuss what you want to improve, which package fits and what it would cost. No package decision needed yet."
+        description="Bring a task or your service plan. We’ll discuss what you want to improve, which coaching or setup support fits and what it would cost. No package decision needed yet."
       />
       <section className="site-container grid items-start gap-12 pb-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div>
@@ -29,7 +29,7 @@ export default function BookPage() {
             {[
               "Your business, customers and the tools you use.",
               "One repeated task you’d like to make easier.",
-              "The coaching, setup work and costs involved.",
+              "The coaching, automation or setup work and costs involved.",
             ].map((item) => (
               <li key={item} className="flex gap-3 text-sm leading-6">
                 <Check

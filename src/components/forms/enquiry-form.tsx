@@ -2,11 +2,13 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { ArrowUpRight, Download, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppUrl, siteConfig } from "@/lib/constants";
 import { packages } from "@/lib/content";
 import { downloadText } from "@/lib/download";
+import { services, servicePlanFromParams, servicePlanHref, servicePlanSummary, type ServicePlan } from "@/lib/service-planner";
 
 type Fields = "name" | "email" | "business" | "message";
 
@@ -14,22 +16,25 @@ export function BookingEnquiry() {
   const params = useSearchParams();
   const selected =
     packages.find((pkg) => pkg.slug === params.get("package"))?.slug ?? "";
-  return <EnquiryForm key={selected} initialPackage={selected} booking />;
+  const servicePlan = servicePlanFromParams(params);
+  return <EnquiryForm key={servicePlan ? servicePlanHref(servicePlan) : selected} initialPackage={selected} initialPlan={servicePlan} booking />;
 }
 
 export function EnquiryForm({
   initialPackage = "",
+  initialPlan = null,
   booking = false,
 }: {
   initialPackage?: string;
+  initialPlan?: ServicePlan | null;
   booking?: boolean;
 }) {
   const [summary, setSummary] = useState("");
   const [draft, setDraft] = useState({
     name: "",
     email: "",
-    business: "",
-    message: "",
+    business: initialPlan && initialPlan.business.id !== "unspecified" ? initialPlan.business.label : "",
+    message: initialPlan ? servicePlanSummary(initialPlan) : "",
     package: initialPackage,
   });
   const [errors, setErrors] = useState<Partial<Record<Fields, string>>>({});
@@ -51,7 +56,9 @@ export function EnquiryForm({
     const email = String(data.get("email") ?? "").trim();
     const business = String(data.get("business") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
-    const selected =
+    const selected = initialPlan
+      ? initialPlan.serviceIds.map((id) => services[id].name).join("; ")
+      :
       packages.find((pkg) => pkg.slug === data.get("package"))?.name ??
       "Please help me choose a package";
     const nextErrors: Partial<Record<Fields, string>> = {};
@@ -80,7 +87,9 @@ export function EnquiryForm({
     });
     setSummary(
       [
-        booking
+        initialPlan
+          ? "AI services conversation — enquiry"
+          : booking
           ? "AI coaching conversation — enquiry"
           : "E Commerce Solutions Kenya — enquiry",
         "",
@@ -98,7 +107,7 @@ export function EnquiryForm({
   if (summary) {
     const whatsapp = getWhatsAppUrl(summary);
     const email = siteConfig.contactEmail
-      ? `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(booking ? "AI coaching call enquiry" : "AI coaching enquiry")}&body=${encodeURIComponent(summary)}`
+      ? `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(initialPlan ? "AI service plan enquiry" : booking ? "AI coaching call enquiry" : "AI coaching enquiry")}&body=${encodeURIComponent(summary)}`
       : null;
     return (
       <div
@@ -144,7 +153,7 @@ export function EnquiryForm({
             type="button"
             variant="outline"
             className="h-12"
-            onClick={() => downloadText("ai-coaching-enquiry.txt", summary)}
+            onClick={() => downloadText(initialPlan ? "ai-service-plan-enquiry.txt" : "ai-coaching-enquiry.txt", summary)}
           >
             <Download className="size-4" aria-hidden="true" />
             Download enquiry
@@ -176,6 +185,14 @@ export function EnquiryForm({
           : "Use this form to write and download an enquiry for later. It does not send a message to us."}{" "}
         Required fields are marked *.
       </p>
+      {initialPlan && (
+        <div className="mt-6 rounded-md bg-secondary p-5">
+          <h3 className="text-sm font-semibold">Your service plan is included</h3>
+          <p className="mt-2 text-sm leading-6">{initialPlan.serviceIds.map((id) => services[id].name).join(" · ")}</p>
+          <p className="mt-2 text-xs leading-6 text-muted-foreground">Your choices are filled in below. Add your name and any details before previewing the enquiry.</p>
+          <Link href={servicePlanHref(initialPlan, "/service-planner")} className="text-link mt-2">Change my service choices</Link>
+        </div>
+      )}
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="field-label">
@@ -247,7 +264,7 @@ export function EnquiryForm({
             </p>
           )}
         </div>
-        <div className="sm:col-span-2">
+        {!initialPlan && <div className="sm:col-span-2">
           <label htmlFor="package" className="field-label">
             Coaching package (optional)
           </label>
@@ -264,7 +281,7 @@ export function EnquiryForm({
               </option>
             ))}
           </select>
-        </div>
+        </div>}
         <div className="sm:col-span-2">
           <label htmlFor="message" className="field-label">
             What would you like help with? *
