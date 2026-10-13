@@ -3,10 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
 import { Brand } from "@/components/site/brand";
 import { Button } from "@/components/ui/button";
 import { navigation } from "@/lib/constants";
+import { whatsappUrl } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -111,6 +112,16 @@ export function Header() {
               <ArrowUpRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>
+          {whatsappUrl && (
+            <a
+              href={whatsappUrl}
+              onClick={() => setOpen(false)}
+              className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full border border-border text-sm font-semibold transition-colors hover:bg-muted"
+            >
+              <MessageCircle className="size-4 text-primary" aria-hidden="true" />
+              Chat on WhatsApp
+            </a>
+          )}
         </nav>
       )}
     </header>

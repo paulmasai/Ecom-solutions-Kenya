@@ -9,6 +9,7 @@ import { FinalCTA } from "@/components/marketing/final-cta";
 import { ResourceList } from "@/components/marketing/resource-list";
 import { pageMetadata } from "@/lib/metadata";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/constants";
 
 export const metadata = pageMetadata(
   "AI Coaching in Kenya | E Commerce Solutions Kenya",
@@ -16,12 +17,40 @@ export const metadata = pageMetadata(
   "/",
 );
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteConfig.name,
+  url: siteConfig.siteUrl,
+  description: siteConfig.description,
+  areaServed: {
+    "@type": "Country",
+    name: "Kenya",
+  },
+  serviceType: "AI Business Coaching",
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceUrl: siteConfig.siteUrl,
+    availableLanguage: "English",
+  },
+  ...(siteConfig.contactEmail && {
+    email: siteConfig.contactEmail,
+  }),
+  ...(siteConfig.whatsappNumber && {
+    telephone: `+${siteConfig.whatsappNumber}`,
+  }),
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <UnderlineHeroSection />
       <div className="border-b bg-[#edeee7]">
-        <div className="site-container grid grid-cols-2 gap-x-5 gap-y-4 py-6 text-[11px] font-medium text-muted-foreground sm:text-xs lg:grid-cols-4">
+        <div className="site-container grid grid-cols-2 gap-x-5 gap-y-4 py-6 text-xs font-medium text-muted-foreground lg:grid-cols-4">
           {[
             "For Kenyan shops, creators and teams",
             "Live, one-to-one coaching",

@@ -16,7 +16,7 @@ export default function UnderlineHeroSection() {
         src="/images/business-workshop.jpg"
         alt=""
         fill
-        preload
+        priority
         sizes="100vw"
         className="-z-20 object-cover object-[68%_center]"
       />
@@ -56,7 +56,7 @@ export default function UnderlineHeroSection() {
           Learn to draft WhatsApp replies, write product descriptions and plan
           content. Get one-to-one coaching built around your Kenyan business.
         </p>
-        <div className="hero-enter hero-enter-last mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-7">
+        <div className="hero-enter hero-enter-last mt-8 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-7">
           <Button
             asChild
             size="lg"
@@ -69,7 +69,8 @@ export default function UnderlineHeroSection() {
           </Button>
           <Link
             href="/ai-coaching"
-            className="inline-flex min-h-11 items-center gap-3 text-sm font-medium text-white underline-offset-4 hover:underline"
+            aria-label="See AI coaching packages and prices"
+            className="inline-flex min-h-11 items-center justify-center gap-3 text-sm font-medium text-white underline-offset-4 hover:underline sm:justify-start"
           >
             See packages & prices{" "}
             <ArrowUpRight className="size-4" aria-hidden="true" />
@@ -80,6 +81,7 @@ export default function UnderlineHeroSection() {
         </p>
         <a
           href="#outcomes"
+          aria-label="Scroll down to see AI use cases"
           className="hero-enter hero-enter-last mt-8 inline-flex min-h-11 items-center gap-3 text-[10px] tracking-[0.12em] text-white/65"
         >
           <ArrowDown className="size-4" aria-hidden="true" /> SEE WHAT YOU CAN

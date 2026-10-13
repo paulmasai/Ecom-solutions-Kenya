@@ -57,7 +57,6 @@ const outcomes = [
 export function Outcomes() {
   const [active, setActive] = useState(0);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const current = outcomes[active];
 
   function navigate(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next = index;
@@ -134,55 +133,53 @@ export function Outcomes() {
             hidden={active !== index}
             tabIndex={0}
           >
-            {active === index && (
-              <div className="grid items-center gap-10 pt-10 lg:grid-cols-[0.95fr_1fr] lg:gap-20">
-                <div className="hero-enter">
-                  <span className="text-xs font-medium text-muted-foreground">
-                    0{index + 1} / A PRACTICAL STARTING POINT
-                  </span>
-                  <h3 className="mt-5 max-w-md text-3xl leading-tight font-medium tracking-tight sm:text-4xl">
-                    {current.title}
-                  </h3>
-                  <p className="mt-5 max-w-md leading-7 text-muted-foreground">
-                    {current.description}
+            <div className="grid items-center gap-10 pt-10 lg:grid-cols-[0.95fr_1fr] lg:gap-20">
+              <div className="hero-enter">
+                <span className="text-xs font-medium text-muted-foreground">
+                  0{index + 1} / A PRACTICAL STARTING POINT
+                </span>
+                <h3 className="mt-5 max-w-md text-3xl leading-tight font-medium tracking-tight sm:text-4xl">
+                  {outcome.title}
+                </h3>
+                <p className="mt-5 max-w-md leading-7 text-muted-foreground">
+                  {outcome.description}
+                </p>
+                <Link href="/ai-coaching" className="text-link mt-6">
+                  Compare coaching packages{" "}
+                  <ArrowUpRight className="size-4" aria-hidden="true" />
+                </Link>
+              </div>
+              <div className="hero-enter rounded-lg bg-secondary p-6 sm:p-9">
+                <p className="mb-6 text-[10px] font-semibold tracking-[0.15em] text-muted-foreground">
+                  EXAMPLE WORKFLOW
+                </p>
+                <div className="border-l-2 border-primary/30 pl-5">
+                  <p className="text-xs font-semibold text-primary">
+                    {outcome.inputLabel}
                   </p>
-                  <Link href="/ai-coaching" className="text-link mt-6">
-                    Compare coaching packages{" "}
-                    <ArrowUpRight className="size-4" aria-hidden="true" />
-                  </Link>
+                  <p className="mt-3 text-base leading-6">{outcome.input}</p>
                 </div>
-                <div className="hero-enter rounded-lg bg-secondary p-6 sm:p-9">
-                  <p className="mb-6 text-[10px] font-semibold tracking-[0.15em] text-muted-foreground">
-                    EXAMPLE WORKFLOW
+                <ArrowRight
+                  className="my-5 ml-5 size-5 rotate-90 text-primary"
+                  aria-hidden="true"
+                />
+                <div className="border-l-2 border-primary pl-5">
+                  <p className="text-xs font-semibold text-primary">
+                    {outcome.outputLabel}
                   </p>
-                  <div className="border-l-2 border-primary/30 pl-5">
-                    <p className="text-xs font-semibold text-primary">
-                      {current.inputLabel}
-                    </p>
-                    <p className="mt-3 text-base leading-6">{current.input}</p>
-                  </div>
-                  <ArrowRight
-                    className="my-5 ml-5 size-5 rotate-90 text-primary"
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {outcome.output}
+                  </p>
+                </div>
+                <p className="mt-8 flex items-center gap-2 border-t border-foreground/10 pt-5 text-xs font-medium">
+                  <Check
+                    className="size-4 shrink-0 text-primary"
                     aria-hidden="true"
                   />
-                  <div className="border-l-2 border-primary pl-5">
-                    <p className="text-xs font-semibold text-primary">
-                      {current.outputLabel}
-                    </p>
-                    <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                      {current.output}
-                    </p>
-                  </div>
-                  <p className="mt-8 flex items-center gap-2 border-t border-foreground/10 pt-5 text-xs font-medium">
-                    <Check
-                      className="size-4 shrink-0 text-primary"
-                      aria-hidden="true"
-                    />
-                    {current.takeaway}
-                  </p>
-                </div>
+                  {outcome.takeaway}
+                </p>
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>

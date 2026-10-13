@@ -22,6 +22,7 @@ export function Brand({
         alt=""
         width={48}
         height={48}
+        loading="eager"
         className="size-12 object-contain"
       />
       <span className={cn("flex flex-col", light && "text-white")}>
